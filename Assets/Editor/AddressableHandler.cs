@@ -55,12 +55,12 @@ public class AddressableHandler : AssetPostprocessor
         }
     }
 
-    public static readonly ResourceFolderInfo InfoAnimation = ResourceFolderInfo.Create("Resources/Animation", "Animation_", ".anim");
-    public static readonly ResourceFolderInfo InfoSound = ResourceFolderInfo.Create("Resources/Sounds", "Sound_", ".mp3", ".wav", ".ogg");
-    public static readonly ResourceFolderInfo InfoPrefab = ResourceFolderInfo.Create("Resources/Prefabs", "Prefab_", ".prefab");
-    public static readonly ResourceFolderInfo InfoMaterial = ResourceFolderInfo.Create("Resources/Materials", "Material_", ".mat");
-    public static readonly ResourceFolderInfo InfoTexture = ResourceFolderInfo.Create("Resources/Textures", "Texture_", ".png", ".jpg", ".jpeg", ".tga", ".bmp", ".psd", ".gif", ".exr", ".iff", ".pict", ".pic", ".hdr", ".tiff");
-    public static readonly ResourceFolderInfo InfoShader = ResourceFolderInfo.Create("Resources/Shaders", "Shader_", ".shader");
+    public static readonly ResourceFolderInfo InfoAnimation = ResourceFolderInfo.Create("Assets/Resources/Animations", "Animation_", ".anim");
+    public static readonly ResourceFolderInfo InfoSound = ResourceFolderInfo.Create("Assets/Resources/Sounds", "Sound_", ".mp3", ".wav", ".ogg");
+    public static readonly ResourceFolderInfo InfoPrefab = ResourceFolderInfo.Create("Assets/Resources/Prefabs", "Prefab_", ".prefab");
+    public static readonly ResourceFolderInfo InfoMaterial = ResourceFolderInfo.Create("Assets/Resources/Materials", "Material_", ".mat");
+    public static readonly ResourceFolderInfo InfoTexture = ResourceFolderInfo.Create("Assets/Resources/Textures", "Texture_", ".png", ".jpg", ".jpeg", ".tga", ".bmp", ".psd", ".gif", ".exr", ".iff", ".pict", ".pic", ".hdr", ".tiff");
+    public static readonly ResourceFolderInfo InfoShader = ResourceFolderInfo.Create("Assets/Resources/Shaders", "Shader_", ".shader");
 
     private static StringBuilder _strBuilder = new StringBuilder();
     public static AddressableAssetSettings Settings
@@ -215,5 +215,31 @@ public class AddressableHandler : AssetPostprocessor
         _strBuilder.Append("</color>");
 
         Debug.Log(_strBuilder.ToString());
+    }
+
+    [MenuItem("Tools/重新生成Addressables")]
+    public static void ReimportFolder()
+    {
+        var groups = Settings.groups;
+        for (int i = groups.Count - 1; i >= 0; i--)
+        {
+            var group = groups[i];
+            if (group.IsDefaultGroup())
+            {
+                continue;
+            }
+
+            Settings.RemoveGroup(group);
+        }
+
+        AssetDatabase.StartAssetEditing();
+        AssetDatabase.ImportAsset(InfoAnimation.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+        AssetDatabase.ImportAsset(InfoMaterial.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+        AssetDatabase.ImportAsset(InfoPrefab.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+        AssetDatabase.ImportAsset(InfoShader.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+        AssetDatabase.ImportAsset(InfoSound.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+        AssetDatabase.ImportAsset(InfoTexture.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+        AssetDatabase.StopAssetEditing();
+        AssetDatabase.Refresh();
     }
 }
