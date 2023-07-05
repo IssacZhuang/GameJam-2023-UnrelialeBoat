@@ -11,6 +11,7 @@ public class CameraTrace: MonoBehaviour
     public bool isLockZ = false;
 
     private Vector3 velocity = Vector3.zero;
+    private Vector3 refCoordinate;
 
     private void LateUpdate()
     {
@@ -18,14 +19,19 @@ public class CameraTrace: MonoBehaviour
         {
             if (isLockZ)
             {
-            }
-            if (!isBlending)
-            {
-                transform.position = target.position;
+                refCoordinate = new Vector3(target.position.x, target.position.y, transform.position.z);
             }
             else
             {
-                Vector3 desiredPosition = target.position;
+                refCoordinate = target.position;
+            }
+            if (!isBlending)
+            {
+                transform.position = refCoordinate;
+            }
+            else
+            {
+                Vector3 desiredPosition = refCoordinate;
                 Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
                 transform.position = smoothedPosition;
             }
