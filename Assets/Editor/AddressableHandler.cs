@@ -141,6 +141,20 @@ public class AddressableHandler : AssetPostprocessor
                 Debug.LogError(e);
             }
         }
+
+
+        if (!EditorApplication.isPlaying)
+        {
+            try
+            {
+                DatabaseLoader.Load();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
+
     }
 
     static void HandleAsset<T>(string importedAsset, ResourceFolderInfo info) where T : UnityEngine.Object
