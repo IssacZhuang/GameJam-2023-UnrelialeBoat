@@ -9,6 +9,7 @@ public static class DatabaseLoader
     private static readonly MethodInfo methodAddToDatabase = typeof(DatabaseLoader).GetMethod("AddToDatabseGeneric", BindingFlags.NonPublic | BindingFlags.Static);
     private static readonly MethodInfo methodHotUpdateConfig = typeof(DatabaseLoader).GetMethod("HotUpdateConfigGeneric", BindingFlags.NonPublic | BindingFlags.Static);
     private static readonly Dictionary<Type, MethodInfo> methodAddToDatabaseTyped = new Dictionary<Type, MethodInfo>();
+    private static readonly Dictionary<Type, MethodInfo> methodHotUpdateTyped = new Dictionary<Type, MethodInfo>();
     private static int count = 0;
 
     /// <summary>
@@ -124,10 +125,10 @@ public static class DatabaseLoader
 
     private static void HotUpdateConfig(Type type, BaseConfig config)
     {
-        if (!methodAddToDatabaseTyped.TryGetValue(type, out MethodInfo method))
+        if (!methodHotUpdateTyped.TryGetValue(type, out MethodInfo method))
         {
             method = methodHotUpdateConfig.MakeGenericMethod(type);
-            methodAddToDatabaseTyped.Add(type, method);
+            methodHotUpdateTyped.Add(type, method);
         }
         method.Invoke(null, new object[] { config });
     }
