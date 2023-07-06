@@ -2,5 +2,6 @@
 <Data>
     <GameConfig>
         <name>GameConfig</name>
+        <defaultMap>DemoScene</defaultMap>
     </GameConfig>
 </Data>
