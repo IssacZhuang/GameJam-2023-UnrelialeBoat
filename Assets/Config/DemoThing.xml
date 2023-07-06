@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <BulletConfig>
+        <name>bulletA</name>
+        <speed>10</speed>
+        <prefab>BulletA</prefab>
+    </BulletConfig>
+
+    <BulletConfig>
+        <name>bulletB</name>
+        <speed>15</speed>
+        <prefab>BulletA</prefab>
+    </BulletConfig>
+
+    <GunConfig>
+        <name>ConfigB</name>
+        <bullet>bulletB</bullet>
+    </GunConfig>
+</Data>
