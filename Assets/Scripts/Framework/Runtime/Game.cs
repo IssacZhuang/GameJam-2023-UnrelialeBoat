@@ -22,6 +22,8 @@ public class Game : MonoBehaviour
         }
     }
 
+    public string currentMap;
+
     public void LoadMap(MapConfig config)
     {
         if (_currentMap != null)
@@ -32,9 +34,31 @@ public class Game : MonoBehaviour
         _currentMap = Map.CreateMap(config);
     }
 
+    public void RelaodMap()
+    {
+        if (_currentMap == null)
+        {
+            return;
+        }
+
+        MapConfig config = _currentMap.Config;
+
+        _currentMap.Destroy();
+        _currentMap = Map.CreateMap(config);
+    }
+
     private void Start()
     {
         _instance = this;
+
+        MapConfig config = Content.GetConfig<MapConfig>(currentMap, false);
+
+        if (config == null)
+        {
+            return;
+        }
+
+        LoadMap(config);
     }
 
     private void FixedUpdate()

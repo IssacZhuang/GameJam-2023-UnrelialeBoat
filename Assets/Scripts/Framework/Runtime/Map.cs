@@ -2,17 +2,29 @@ using System;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEditor;
 
 public class Map
 {
     private List<IEntity> _entities = new List<IEntity>();
     private HashSet<IEntity> _check = new HashSet<IEntity>();
     private GameObject _scene;
+    private MapConfig _config;
+
+    public MapConfig Config
+    {
+        get
+        {
+            return _config;
+        }
+    }
 
     public static Map CreateMap(MapConfig config)
     {
-        GameObject scene = Content.GetPrefab(config.scene);
+        GameObject scene = Content.GetPrefabInstance(config.scene);
+
         Map map = new Map(scene);
+        map._config = config;
         return map;
     }
 
@@ -98,5 +110,7 @@ public class Map
                 Debug.LogError(e);
             }
         }
+
+        GameObject.Destroy(_scene);
     }
 }
