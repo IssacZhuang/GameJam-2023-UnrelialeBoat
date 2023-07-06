@@ -38,6 +38,7 @@ public class Map
 
         _check.Add(entity);
         _entities.Add(entity);
+        entity.Spawn(this);
         return true;
     }
 
@@ -50,6 +51,7 @@ public class Map
 
         _check.Remove(entity);
         _entities.Remove(entity);
+        entity.Despawn();
         return true;
     }
 
@@ -89,7 +91,7 @@ public class Map
         {
             try
             {
-                _entities[i].OnDestroy();
+                _entities[i].Despawn();
             }
             catch (Exception e)
             {
