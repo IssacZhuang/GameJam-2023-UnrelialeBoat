@@ -3,13 +3,16 @@ using System.Reflection;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Diagnostics;
+using Vocore;
+using System.Xml;
 
 public static class DatabaseLoader
 {
-    private static readonly MethodInfo methodAddToDatabase = typeof(DatabaseLoader).GetMethod("AddToDatabseGeneric", BindingFlags.NonPublic | BindingFlags.Static);
-    private static readonly MethodInfo methodHotUpdateConfig = typeof(DatabaseLoader).GetMethod("HotUpdateConfigGeneric", BindingFlags.NonPublic | BindingFlags.Static);
-    private static readonly Dictionary<Type, MethodInfo> methodAddToDatabaseTyped = new Dictionary<Type, MethodInfo>();
-    private static readonly Dictionary<Type, MethodInfo> methodHotUpdateTyped = new Dictionary<Type, MethodInfo>();
+    private static readonly StaticGenericMothodHelper methodAddToDatabase = new StaticGenericMothodHelper(typeof(DatabaseLoader), "AddToDatabseGeneric");
+    private static readonly StaticGenericMothodHelper methodHotUpdateConfig = new StaticGenericMothodHelper(typeof(DatabaseLoader), "HotUpdateConfigGeneric");
+    private static readonly StaticGenericMothodHelper methodRegisterParser = new StaticGenericMothodHelper(typeof(DatabaseLoader), "RegisterParserGeneric");
+
     private static int count = 0;
 
     /// <summary>
@@ -17,6 +20,8 @@ public static class DatabaseLoader
     /// </summary>
     public static void Load()
     {
+        TryRegisterConfigParser();
+
         Dictionary<Type, List<BaseConfig>> content = new Dictionary<Type, List<BaseConfig>>();
         XmlConfigLoader loader = new XmlConfigLoader();
         count = 0;
@@ -49,6 +54,9 @@ public static class DatabaseLoader
                 }
             }
         }
+
+        CrossReferenceResolver.Clear();
+        CrossReferenceResolver.ResolveCrossReference(loader.Content);
 
         Debug.Log(TextColor.Green(string.Format("加载了 {0} 个配置", count)));
     }
@@ -97,11 +105,7 @@ public static class DatabaseLoader
 
     private static void AddToDatabse(Type type, BaseConfig config)
     {
-        if (!methodAddToDatabaseTyped.TryGetValue(type, out MethodInfo method))
-        {
-            method = methodAddToDatabase.MakeGenericMethod(type);
-            methodAddToDatabaseTyped.Add(type, method);
-        }
+        MethodInfo method = methodAddToDatabase.GetMethod(type);
         method.Invoke(null, new object[] { config });
     }
 
@@ -125,11 +129,7 @@ public static class DatabaseLoader
 
     private static void HotUpdateConfig(Type type, BaseConfig config)
     {
-        if (!methodHotUpdateTyped.TryGetValue(type, out MethodInfo method))
-        {
-            method = methodHotUpdateConfig.MakeGenericMethod(type);
-            methodHotUpdateTyped.Add(type, method);
-        }
+        MethodInfo method = methodHotUpdateConfig.GetMethod(type);
         method.Invoke(null, new object[] { config });
     }
 
@@ -156,5 +156,41 @@ public static class DatabaseLoader
     private static void ClearDatabse<T>() where T : BaseConfig
     {
         Database<T>.Clear();
+    }
+
+    private static void TryRegisterConfigParser()
+    {
+        //register all sub class of BaseConfig
+        RegisterParserGeneric<BaseConfig>();
+        Type[] types = typeof(BaseConfig).Assembly.GetTypes();
+        foreach (Type type in types)
+        {
+            if (type.IsSubclassOf(typeof(BaseConfig)))
+            {
+                RegisterParser(type);
+            }
+        }
+    }
+
+    private static void RegisterParser(Type type)
+    {
+        XmlParser.DisableParserOnRoot(type);
+        MethodInfo method = methodRegisterParser.GetMethod(type);
+        method.Invoke(null, new object[] { });
+    }
+
+    private static void RegisterParserGeneric<T>() where T : BaseConfig
+    {
+        if (!UtilsParse.HasParser<T>())
+        {
+            UtilsParse.RegisterParser<T>(ConfigParser<T>);
+        }
+    }
+
+    private static T ConfigParser<T>(string str) where T : BaseConfig
+    {
+        T config = Activator.CreateInstance<T>();
+        config.name = str;
+        return config;
     }
 }
