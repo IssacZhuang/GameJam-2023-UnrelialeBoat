@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vocore;
 
-public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseConfig
+public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseThingConfig
 {
     private TConfig _config;
     private bool _isSpawned = false;
@@ -45,13 +45,22 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
 
     #region 管理创建和销毁，不可重写以确保安全
 
-    /// <summary>
-    /// 物体初始化
-    /// </summary>
     public void Initialize(TConfig config, GameObject instance)
     {
         _config = config;
         _instance = instance;
+        _instance.SetActive(false);
+        OnCreate();
+    }
+
+    /// <summary>
+    /// 物体初始化
+    /// </summary>
+    public void Initialize(TConfig config)
+    {
+        _config = config;
+        _instance = Content.GetPrefabInstance(config.prefab);
+        _instance.SetActive(false);
         OnCreate();
     }
 
@@ -62,6 +71,7 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
     {
         _map = map;
         _isSpawned = true;
+        _instance.SetActive(true);
         OnSpawn();
     }
 
