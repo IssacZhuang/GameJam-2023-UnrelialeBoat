@@ -10,6 +10,7 @@ public class Map
     private HashSet<IEntity> _check = new HashSet<IEntity>();
     private GameObject _scene;
     private MapConfig _config;
+    private List<BaseMapComponent> _components = new List<BaseMapComponent>();
 
     public MapConfig Config
     {
@@ -21,16 +22,30 @@ public class Map
 
     public static Map CreateMap(MapConfig config)
     {
-        GameObject scene = Content.GetPrefabInstance(config.scene);
-
-        Map map = new Map(scene);
-        map._config = config;
+        Map map = new Map(config);
         return map;
     }
 
-    public Map(GameObject prefab)
+    public Map(MapConfig config)
     {
-        _scene = prefab;
+        _scene = Content.GetPrefabInstance(config.scene); ;
+        _config = config;
+        if (config.components != null)
+        {
+            for (int i = 0; i < config.components.Count; i++)
+            {
+                try
+                {
+                    BaseMapComponent component = Activator.CreateInstance(config.components[i]) as BaseMapComponent;
+                    component.Init(this);
+                    _components.Add(component);
+                }
+                catch
+                {
+                    Debug.LogError("无法创建MapComponent: " + config.components[i].Name);
+                }
+            }
+        }
     }
 
     public GameObject Scene
@@ -80,6 +95,18 @@ public class Map
                 Debug.LogError(e);
             }
         }
+
+        for (int i = 0; i < _components.Count; i++)
+        {
+            try
+            {
+                _components[i].OnTick();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
     }
 
     public void Update()
@@ -95,6 +122,18 @@ public class Map
                 Debug.LogError(e);
             }
         }
+
+        for (int i = 0; i < _components.Count; i++)
+        {
+            try
+            {
+                _components[i].OnUpdate();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
     }
 
     public void Destroy()
@@ -104,6 +143,18 @@ public class Map
             try
             {
                 _entities[i].Despawn();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
+
+        for (int i = 0; i < _components.Count; i++)
+        {
+            try
+            {
+                _components[i].OnDestroy();
             }
             catch (Exception e)
             {
