@@ -82,6 +82,9 @@ public static class DatabaseLoader
             list.Add(config);
         }
 
+        CrossReferenceResolver.Clear();
+        CrossReferenceResolver.ResolveCrossReference(loader.Content);
+
         foreach (var pair in content)
         {
             foreach (BaseConfig config in pair.Value)

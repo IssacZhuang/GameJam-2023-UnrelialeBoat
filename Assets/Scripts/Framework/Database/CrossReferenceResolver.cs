@@ -50,6 +50,7 @@ public unsafe static class CrossReferenceResolver
             if (type == typeof(BaseConfig) || type.IsSubclassOf(typeof(BaseConfig)))
             {
                 BaseConfig virtualConfig = (BaseConfig)field.GetValue(config);
+
                 if (virtualConfig != null)
                 {
                     yield return new CrossReferenceRecord
