@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 using UnityEngine;
 using Vocore;
 
@@ -9,6 +9,7 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
     private bool _isSpawned = false;
     private GameObject _instance;
     private Map _map;
+    HashSet<EventId> _eventIds = new HashSet<EventId>();
 
     public TConfig Config
     {
@@ -62,7 +63,6 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
         _map = map;
         _isSpawned = true;
         OnSpawn();
-        OnBindingEvent();
     }
 
     /// <summary>
@@ -71,13 +71,19 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
     public void Despawn()
     {
         _isSpawned = false;
-        OnBindingEvent();
         OnDespawn();
         if (_instance != null)
         {
             GameObject.Destroy(_instance);
         }
+        _instance = null;
+        _map = null;
         _config = null;
+        foreach (var eventId in _eventIds)
+        {
+            this.UnregisterEvent(eventId);
+        }
+        _eventIds.Clear();
     }
 
     #endregion
@@ -109,14 +115,6 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
     }
 
     /// <summary>
-    /// 绑定事件，物体被生成到地图或者从地图上移除时会调用
-    /// </summary>
-    protected virtual void OnBindingEvent()
-    {
-
-    }
-
-    /// <summary>
     /// 逻辑帧
     /// </summary>
     public virtual void OnTick()
@@ -139,14 +137,8 @@ public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseCo
     //绑定事件
     protected void BindEvent<TData>(EventId eventId, Action<TData> callback)
     {
-        if (_isSpawned)
-        {
-            this.RegisterEvent(eventId, callback);
-        }
-        else
-        {
-            this.UnregisterEvent(eventId);
-        }
+        this.RegisterEvent(eventId, callback);
+        _eventIds.Add(eventId);
     }
 
     #endregion
