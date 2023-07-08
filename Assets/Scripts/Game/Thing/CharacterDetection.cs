@@ -6,8 +6,8 @@ using Vocore;
 public class CharacterDetection : BaseThing<CharacterDetectionConfig>
 {
 
-    private int segments = 30; // Ô²È¦·Ö¶ÎÊý
-    private float lineWidth = 0.2f; // Ô²È¦Ïß¿í
+    private int segments = 30; // Ô²È¦ï¿½Ö¶ï¿½ï¿½ï¿½
+    private float lineWidth = 0.2f; // Ô²È¦ï¿½ß¿ï¿½
     private LineRenderer lineRenderer;
     private Rigidbody2D _rigidbody;
 
@@ -16,12 +16,12 @@ public class CharacterDetection : BaseThing<CharacterDetectionConfig>
         _rigidbody = Instance.GetComponent<Rigidbody2D>();
         if (_rigidbody == null)
         {
-            Debug.LogError("CharacterÃ»ÓÐRigidbody2D");
+            Debug.LogError("CharacterÃ»ï¿½ï¿½Rigidbody2D");
         }
 
         if (Config.drawRadius)
         {
-            // ´´½¨LineRenderer×é¼þ²¢½øÐÐ³õÊ¼»¯
+            // ï¿½ï¿½ï¿½ï¿½LineRendererï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½
             lineRenderer = this.Instance.gameObject.AddComponent<LineRenderer>();
             lineRenderer.positionCount = segments + 1;
             lineRenderer.startWidth = lineWidth;
@@ -33,24 +33,24 @@ public class CharacterDetection : BaseThing<CharacterDetectionConfig>
 
     public override void OnUpdate()
     {
-        // ÔÚÃ¿Ò»Ö¡¸üÐÂÖÐÐÄµãÎ»ÖÃ
+        // ï¿½ï¿½Ã¿Ò»Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½
         Vector2 center = this.Instance.transform.position;
 
-        // ¼ì²â·¶Î§ÄÚµÄËùÓÐÅö×²Æ÷
+        // ï¿½ï¿½â·¶Î§ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½
         Collider2D[] colliders = Physics2D.OverlapCircleAll(this.Instance.transform.position, Config.detectionRadius);
 
-        // ±éÀúÃ¿¸ö¼ì²âµ½µÄÅö×²Æ÷
+        // ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½
         foreach (Collider2D collider in colliders)
         {
-            // ÅÅ³ýµ±Ç°ÎïÌå×ÔÉí
+            // ï¿½Å³ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (collider.gameObject != this.Instance.gameObject)
             {
-                // ´¦Àí¼ì²âµ½µÄÆäËûÎïÌå
-                Debug.Log("¼ì²âµ½ÎïÌå: " + collider.gameObject.name);
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                // Debug.Log("ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½: " + collider.gameObject.name);
                 var eventBridge = collider.gameObject.GetComponent<EventBridge>();
                 if (eventBridge != null)
                 {
-                    Debug.Log("¶ÔÎïÌå " + collider.gameObject.name+"·¢³öÅö´¥ÊÂ¼þ.");
+                    // Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " + collider.gameObject.name+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½.");
                     EventBridge.SendEventByGameObject(collider.gameObject, EventHoverObject.eventHoverObject);
                 }
 
@@ -58,9 +58,9 @@ public class CharacterDetection : BaseThing<CharacterDetectionConfig>
         }
         if (Config.drawRadius)
         {
-            // »æÖÆ¼ì²â°ë¾¶µÄ¿ÉÊÓ»¯±íÊ¾
+            // ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ë¾¶ï¿½Ä¿ï¿½ï¿½Ó»ï¿½ï¿½ï¿½Ê¾
             float angleStep = 360f / segments;
-            // ¸üÐÂÔ²È¦µÄ¶¥µãÎ»ÖÃ
+            // ï¿½ï¿½ï¿½ï¿½Ô²È¦ï¿½Ä¶ï¿½ï¿½ï¿½Î»ï¿½ï¿½
             for (int i = 0; i <= segments; i++)
             {
                 float angle = i * angleStep;
