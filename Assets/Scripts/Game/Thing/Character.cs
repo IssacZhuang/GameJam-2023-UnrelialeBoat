@@ -98,14 +98,14 @@ public class Character : BaseThing<CharacterConfig>
 
     public void OnStartMove()
     {
-        Debug.Log("OnStartMove");
+        //Debug.Log("OnStartMove");
         _animator.ResetTrigger("Idle");
         _animator.SetTrigger(GetTriigerByDirection(_movementDirection));
     }
 
     public void OnStopMove()
     {
-        Debug.Log("OnStopMove");
+        //Debug.Log("OnStopMove");
         _animator.ResetTrigger("LeftRun");
         _animator.ResetTrigger("RightRun");
         _animator.ResetTrigger("UpRun");

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+using Vocore;
+
 public class Map
 {
     private List<IEntity> _entities = new List<IEntity>();
@@ -163,5 +165,20 @@ public class Map
         }
 
         GameObject.Destroy(_scene);
+    }
+
+    public void SendGlobalEvent<T>(EventId eventId, T value)
+    {
+        for (int i = 0; i < _entities.Count; i++)
+        {
+            try
+            {
+                _entities[i].SendEvent<T>(eventId, value);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
     }
 }

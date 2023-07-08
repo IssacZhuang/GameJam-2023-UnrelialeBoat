@@ -4,5 +4,6 @@ using Vocore;
 
 public class CharacterDetectionConfig:BaseThingConfig
 {
-    public float detectionRange;
+    public float detectionRadius;
+    public bool drawRadius;
 }

@@ -3,18 +3,21 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ViewManager: MonoBehaviour
+using Vocore;
+
+public class ViewManager : MonoBehaviour, IEventReciever
 {
     private List<IView> _views = new List<IView>();
     private Canvas _canvas;
 
-    void Start()
+    void Awake()
     {
         _canvas = GetComponent<Canvas>();
         if (_canvas == null)
         {
             Debug.LogError("ViewManager 需要有Canvas组件");
         }
+        Current.ViewManager = this;
 
     }
 
@@ -60,20 +63,20 @@ public class ViewManager: MonoBehaviour
         }
     }
 
-    public void Clear()
-    {
-        foreach (IView view in _views)
-        {
-            view.Destroy();
-        }
-        _views.Clear();
-    }
+
 
     public void FixedUpdate()
     {
         for (int i = 0; i < _views.Count; i++)
         {
-            _views[i].OnTick();
+            try
+            {
+                _views[i].OnTick();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 
@@ -81,15 +84,51 @@ public class ViewManager: MonoBehaviour
     {
         for (int i = 0; i < _views.Count; i++)
         {
-            _views[i].OnUpdate();
+            try
+            {
+                _views[i].OnUpdate();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 
     public void OnDestroy()
     {
+        Clear();
+    }
+
+    public void Clear()
+    {
+        foreach (IView view in _views)
+        {
+            try
+            {
+                view.Destroy();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+
+        }
+        _views.Clear();
+    }
+
+    public void SendGlobalEvent<T>(EventId eventId, T value)
+    {
         for (int i = 0; i < _views.Count; i++)
         {
-            _views[i].Destroy();
+            try
+            {
+                _views[i].SendEvent<T>(eventId, value);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 }
