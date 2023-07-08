@@ -10,6 +10,7 @@ using Vocore;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
+    public bool isPaused = false;                // Indicates if the movement of the character is paused
     public float speed = 5f;                     // The base speed of the player
     public float accelarateDuration = 1.5f;      // The duration for accelerating the player's speed
     public float stopMovingDecayFactor = 0.1f;   // The factor to decay the player's speed when not moving
@@ -19,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving;                        // Indicates whether the player is currently moving
     private Rigidbody2D rb;                       // The Rigidbody2D component of this object
     private Animator animator;                     // The Animator component of this object
+    
 
+    
     private Func<float, float> speedCurve;         // Function for calculating the speed curve
 
     private void OnValidate()
@@ -37,30 +40,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Check if any WASD or arrow keys are pressed
-        if (MovementKeyDown())
-        {
-            if (!isMoving)
+        // Check if the character could move
+        if (!isPaused){
+            animator.enabled = true;
+            // Check if any WASD or arrow keys are pressed
+            if (MovementKeyDown())
             {
-                buttonPressTime = Time.time;  // Record the time when the first WASD key is pressed
+                if (!isMoving)
+                {
+                    buttonPressTime = Time.time;  // Record the time when the first WASD key is pressed
+                }
+                isMoving = true;
             }
-            isMoving = true;
+
+            // Decelerate the player's speed when the WASD or arrow key is released (to provide a smoother feel)
+            if (MovementKeyUp())
+            {
+                if (!AnyMovementKeyDown())
+                {
+                    isMoving = false;
+                    //// Reset all animation triggers
+                    animator.ResetTrigger("LeftRun");
+                    animator.ResetTrigger("RightRun");
+                    animator.ResetTrigger("UpRun");
+                    animator.ResetTrigger("DownRun");
+                    animator.SetTrigger("Idle");
+                }
+            }
+        }else{
+            animator.enabled = false;
         }
 
-        // Decelerate the player's speed when the WASD or arrow key is released (to provide a smoother feel)
-        if (MovementKeyUp())
-        {
-            if (!AnyMovementKeyDown())
-            {
-                isMoving = false;
-                //// Reset all animation triggers
-                animator.ResetTrigger("LeftRun");
-                animator.ResetTrigger("RightRun");
-                animator.ResetTrigger("UpRun");
-                animator.ResetTrigger("DownRun");
-                animator.SetTrigger("Idle");
-            }
-        }
     }
 
     private void FixedUpdate()
