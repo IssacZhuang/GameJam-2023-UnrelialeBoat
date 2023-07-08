@@ -21,4 +21,20 @@
 		<name>TestInteractiveObject</name>
 		<prefab>InteractiveObject</prefab>
 	</BaseThingConfig>
+
+    <InteractiveObjectConfig>
+		<name>InteractiveObjectKeyItem</name>
+		<prefab>InteractiveObject</prefab>
+        <isKeyItem>true</isKeyItem>
+        <detectionRadius>1.5</detectionRadius>
+    </InteractiveObjectConfig>
+
+    <InteractiveObjectConfig>
+		<name>InteractiveObjectNotKeyItem</name>
+		<prefab>InteractiveObject</prefab>
+        <isKeyItem>false</isKeyItem>
+        <detectionRadius>1.5</detectionRadius>
+    </InteractiveObjectConfig>
+
+
 </Data>
