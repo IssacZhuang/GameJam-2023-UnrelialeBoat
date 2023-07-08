@@ -16,4 +16,9 @@
         <name>ConfigB</name>
         <bullet>bulletB</bullet>
     </GunConfig>
+	
+	<BaseThingConfig>
+		<name>TestInteractiveObject</name>
+		<prefab>InteractiveObject</prefab>
+	</BaseThingConfig>
 </Data>
