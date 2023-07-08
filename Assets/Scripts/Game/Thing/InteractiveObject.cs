@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Vocore;
 
 public class InteractiveObject : BaseThing<BaseThingConfig>
 {
@@ -11,6 +13,12 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
     public override void OnSpawn()
     {
         base.OnSpawn();
+        this.BindEvent<int>(EventHoverObject.eventHoverObject, OnHover);
+    }
+
+    public void OnHover(int damage)
+    {
+        //do something
     }
 
     public override void OnUpdate()
