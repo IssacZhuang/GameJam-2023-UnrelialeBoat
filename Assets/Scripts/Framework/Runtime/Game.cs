@@ -59,6 +59,7 @@ public class Game : MonoBehaviour
         Time.fixedDeltaTime = 1 / config.tickRate;
 
         LoadMap(config.defaultMap);
+        MainMenu.PopMainMenu();
     }
 
     private void FixedUpdate()

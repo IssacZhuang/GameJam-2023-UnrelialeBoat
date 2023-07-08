@@ -3,5 +3,6 @@
     <MainMenuConfig>
         <name>MainMenu</name>
         <prefab>MainMenu</prefab>
+		<defaultMap>Scene1</defaultMap>
     </MainMenuConfig>
 </Data>

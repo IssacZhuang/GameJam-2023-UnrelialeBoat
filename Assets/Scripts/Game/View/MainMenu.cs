@@ -38,7 +38,8 @@ public class MainMenu : BaseView<MainMenuConfig>
         _btnStart.onClick.AddListener(() =>
         {
             // »»µØÍ¼
-            // Current.Game.LoadMap();
+            Current.Game.LoadMap(Config.defaultMap);
+            this.Hide();
         });
         // start button logic
         _btnAbout = transform.Find("AboutButton").GetComponent<Button>();
