@@ -11,6 +11,6 @@
 	<CharacterDetectionConfig>
 		<name>characterDetectionScript</name>
 		<detectionRadius>1.0</detectionRadius>
-		<drawRadius>true</drawRadius>
+		<drawRadius>false</drawRadius>
 	</CharacterDetectionConfig>
 </Data>
