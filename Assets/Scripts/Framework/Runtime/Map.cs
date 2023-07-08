@@ -58,6 +58,14 @@ public class Map
         }
     }
 
+    public IEnumerable<IEntity> Entities
+    {
+        get
+        {
+            return _entities;
+        }
+    }
+
     public bool AddEntity(IEntity entity)
     {
         if (_check.Contains(entity))
