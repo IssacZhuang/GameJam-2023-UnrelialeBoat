@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <FloatTipConfig>
+        <name>defaultFloatTip</name>
+        <prefab>FloatTip</prefab>
+        <moveDuration>0.75</moveDuration>
+        <lifeTime>3</lifeTime>
+    </FloatTipConfig>
+</Data>
