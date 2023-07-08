@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9194379201309505192}
   - component: {fileID: 4963106509125818023}
   - component: {fileID: 5700735372758780231}
-  - component: {fileID: 3330909749720372277}
+  - component: {fileID: 538162570536368705}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6417974189518391496
 Rigidbody2D:
@@ -181,7 +181,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3330909749720372277
+--- !u!114 &538162570536368705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,10 +190,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7379056439354638831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b905cb694f598a4a8a318b403595124, type: 3}
+  m_Script: {fileID: 11500000, guid: df93cddbed0092648aaff2063cd1f82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   accelarateDuration: 1.5
   stopMovingDecayFactor: 0.1
   speedBizerLerpCurveParam:
