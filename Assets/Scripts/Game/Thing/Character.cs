@@ -42,6 +42,14 @@ public class Character : BaseThing<CharacterConfig>
 
     }
 
+    public override void OnSpawn()
+    {
+        Current.MainCharacter = this;
+        Current.CameraTrace.target = Instance.transform;
+
+        base.OnSpawn();
+    }
+
     public override void OnUpdate()
     {
         if (HasMovementKey())
