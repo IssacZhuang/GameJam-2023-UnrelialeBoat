@@ -23,6 +23,7 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
     public void OnDiscover()
     {
         //do something
+        Debug.Log("OnDiscover");
         if (isDone){
             showStatus = 2;
         }else{

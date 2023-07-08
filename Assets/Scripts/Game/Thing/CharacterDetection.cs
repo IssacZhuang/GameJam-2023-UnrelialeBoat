@@ -51,7 +51,7 @@ public class CharacterDetection : BaseThing<CharacterDetectionConfig>
                 if (eventBridge != null)
                 {
                     Debug.Log("对物体 " + collider.gameObject.name+"发出碰触事件.");
-                    EventBridge.SendEventByGameObject(collider.gameObject, EventCharacter.eventCharacterDetectObject);
+                    EventBridge.SendEventByGameObject(collider.gameObject, EventHoverObject.eventHoverObject);
                 }
 
             }
