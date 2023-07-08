@@ -63,6 +63,14 @@ public class Character : BaseThing<CharacterConfig>
                 _isMoving = true;
                 OnStartMove();
             }
+            else
+            {
+                _animator.ResetTrigger("LeftRun");
+                _animator.ResetTrigger("RightRun");
+                _animator.ResetTrigger("UpRun");
+                _animator.ResetTrigger("DownRun");
+                _animator.SetTrigger(GetTriigerByDirection(_movementDirection));
+            }
         }
         else
         {
