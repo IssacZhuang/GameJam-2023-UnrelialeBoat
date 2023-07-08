@@ -13,6 +13,7 @@ namespace Vocore
 
         private static List<string> _errors = new List<string>();
         private static object _lock = new object();
+        private static HashSet<Type> _disableParserOnRoot = new HashSet<Type>();
 
         /// <summary>
         /// Parse a XML node to an object
@@ -86,16 +87,19 @@ namespace Vocore
                 return null;
             }
 
-            try
+            if (!(depth == 0 && _disableParserOnRoot.Contains(type)))
             {
-                if (UtilsParse.TryParse(xml.InnerText, type, out Object objParsed))
+                try
                 {
-                    return objParsed;
+                    if (UtilsParse.TryParse(xml.InnerText, type, out Object objParsed))
+                    {
+                        return objParsed;
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                AddError("Parse failed for node: '" + xml.Name + "' in type: '" + type.Name + "', value: " + xml.InnerText + ", error: \n" + e + "\nRaw xml text: \n" + xml.GetXmlTextFormated());
+                catch (Exception e)
+                {
+                    AddError("Parse failed for node: '" + xml.Name + "' in type: '" + type.Name + "', value: " + xml.InnerText + ", error: \n" + e + "\nRaw xml text: \n" + xml.GetXmlTextFormated());
+                }
             }
 
 
@@ -251,6 +255,11 @@ namespace Vocore
             {
                 _errors.Clear();
             }
+        }
+
+        public static void DisableParserOnRoot(Type type)
+        {
+            _disableParserOnRoot.Add(type);
         }
 
         private static void AddError(string error)

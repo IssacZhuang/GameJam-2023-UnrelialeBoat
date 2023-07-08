@@ -2,5 +2,7 @@
 <Data>
     <GameConfig>
         <name>GameConfig</name>
+        <defaultMap>Scene1</defaultMap>
+        <tickInterval>0.0166666666</tickInterval>
     </GameConfig>
 </Data>

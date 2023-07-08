@@ -5,14 +5,19 @@ using UnityEngine.AddressableAssets;
 
 public static class Content
 {
-    public static T GetConfig<T>(string name) where T : BaseConfig
+    public static T GetConfig<T>(string name, bool exceptionOnNotFound = true) where T : BaseConfig
     {
-        return Database<T>.Get(name);
+        return Database<T>.Get(name, exceptionOnNotFound);
     }
 
     public static GameObject GetPrefab(string name)
     {
         return GetResrouce<GameObject>(name);
+    }
+
+    public static GameObject GetPrefabInstance(string name)
+    {
+        return GameObject.Instantiate(GetPrefab(name));
     }
 
     public static Texture2D GetTexture(string name)

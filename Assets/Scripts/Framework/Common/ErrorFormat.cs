@@ -8,6 +8,10 @@ public static class ErrorFormat
     {
         return TextColor.Red("找不到配置: 类型" + type.ToString() + ", 名称" + name);
     }
+    public static string CrossRefConfigConfigNotFound(string name, string fieldName, Type type, string refName)
+    {
+        return TextColor.Red($"{name}配置中的{fieldName}字段引用了不存在的{type}配置: {refName}");
+    }
     public static string DuplicatedConfigName(string name)
     {
         return TextColor.Red("配置的名称(<name/>字段)重复: " + name);

@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameConfig : BaseConfig
 {
     public float tickInterval;
+    public MapConfig defaultMap;
 }

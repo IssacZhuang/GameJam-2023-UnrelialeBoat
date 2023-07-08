@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <MapConfig>
+        <name>Scene1</name>
+        <scene>DemoScene</scene>
+        <description>示例地图..sss.</description>
+    </MapConfig>
+
+    <MapConfig>
+        <name>Scene2</name>
+        <scene>DemoScene2</scene>
+        <description>示例地图..sss.</description>
+    </MapConfig>
+</Data>
