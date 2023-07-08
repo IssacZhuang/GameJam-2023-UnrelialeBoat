@@ -1,8 +1,3 @@
-public class BaseThingConfig : BaseConfig
-{
-    public string prefab;
-}
-
 public class BulletConfig : BaseThingConfig
 {
     public float speed;

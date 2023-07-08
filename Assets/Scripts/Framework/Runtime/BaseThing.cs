@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vocore;
 
-public class BaseThing<TConfig> : IEntity, IEventReciever where TConfig : BaseThingConfig
+public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
 {
     private TConfig _config;
     private bool _isSpawned = false;
