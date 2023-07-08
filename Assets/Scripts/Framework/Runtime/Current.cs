@@ -6,6 +6,7 @@ public static class Current
     public static Map Map => Game.CurrentMap;
     public static CameraTrace CameraTrace { get; set; }
     public static ViewManager ViewManager { get; set; }
+    public static AudioManager AudioManager { get; set; }
 
     public static Character MainCharacter {
         get;set;
