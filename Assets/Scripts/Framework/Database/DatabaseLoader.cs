@@ -27,6 +27,7 @@ public static class DatabaseLoader
         count = 0;
 
         loader.Load();
+        XmlParser.ClearErrors();
 
         foreach (BaseConfig config in loader.Content)
         {
@@ -57,6 +58,11 @@ public static class DatabaseLoader
 
         CrossReferenceResolver.Clear();
         CrossReferenceResolver.ResolveCrossReference(loader.Content);
+
+        foreach (string error in XmlParser.GetErrors())
+        {
+            Debug.LogError(error);
+        }
 
         Debug.Log(TextColor.Green(string.Format("加载了 {0} 个配置", count)));
     }
@@ -163,6 +169,26 @@ public static class DatabaseLoader
 
     private static void TryRegisterConfigParser()
     {
+        if (!UtilsParse.HasParser<EventId>())
+        {
+            UtilsParse.RegisterParser<EventId>((string str) =>
+            {
+                try
+                {
+                    EventId eventId = EventManager.GetCachedEvent(str);
+                    return eventId;
+                }
+                catch (Exception e)
+                {
+                    if (!Application.isEditor)
+                    {
+                        Debug.LogError(e);
+                    }
+                }
+                return default(EventId);
+            });
+        }
+
         //register all sub class of BaseConfig
         RegisterParserGeneric<BaseConfig>();
         Type[] types = typeof(BaseConfig).Assembly.GetTypes();

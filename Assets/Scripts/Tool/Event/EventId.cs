@@ -6,20 +6,30 @@ namespace Vocore
 {
     public struct EventId : IEquatable<EventId>
     {
-        private const string DebugStringFormat = "Event: id = {0}, desc = {1}";
+        private const string DebugStringFormat = "Event: id = {0}, stringId = {1}";
         private int _id;
         // used for debugging
-        private string _desc;
+        private string _strId;
 
-        public EventId(int id, string desc)
+        public int Id
+        {
+            get { return _id; }
+        }
+
+        public string StringId
+        {
+            get { return _strId; }
+        }
+
+        public EventId(int id, string strId)
         {
             _id = id;
-            _desc = desc;
+            _strId = strId;
         }
 
         public override string ToString()
         {
-            return string.Format(DebugStringFormat, _id, _desc);
+            return string.Format(DebugStringFormat, _id, _strId);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
