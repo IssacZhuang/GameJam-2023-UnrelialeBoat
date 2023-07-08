@@ -13,6 +13,11 @@ public class CameraTrace: MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Vector3 refCoordinate;
 
+    void Start()
+    {
+        Current.CameraTrace = this;
+    }
+
     private void LateUpdate()
     {
         if (target != null)
