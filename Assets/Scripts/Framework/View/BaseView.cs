@@ -10,6 +10,23 @@ public class BaseView<TConfig> :  IView where TConfig : BaseViewConfig
     private GameObject _instance;
     private HashSet<EventId> _eventIds = new HashSet<EventId>();
     private List<IView> _subViews = new List<IView>();
+    private RectTransform _transform;
+
+    public IEnumerable<string> Tags
+    {
+        get
+        {
+            return _config.tags;
+        }
+    }
+
+    public RectTransform transform
+    {
+        get
+        {
+            return _instance.GetComponent<RectTransform>();
+        }
+    }
 
     public TConfig Config
     {
@@ -33,6 +50,11 @@ public class BaseView<TConfig> :  IView where TConfig : BaseViewConfig
     {
         _config = config;
         _instance = instance;
+        _transform = _instance.GetComponent<RectTransform>();
+        if (_transform == null)
+        {
+            Debug.LogError("BaseView 需要有RectTransform组件");
+        }
         OnCreate();
     }
 

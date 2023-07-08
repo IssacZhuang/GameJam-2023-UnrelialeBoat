@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <DialogConfig>
+        <defaultSpeaker>LYM</defaultSpeaker>
+        <content>
+            <li>
+                <speaker>LYM</speaker>
+                <text>阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧。。</text>
+            </li>
+            <li>
+                <speaker>LYM</speaker>
+                <text>咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜。。</text>
+            </li>
+        </content>
+    </DialogConfig>
+
+	
+</Data>

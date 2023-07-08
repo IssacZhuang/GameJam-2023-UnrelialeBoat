@@ -7,4 +7,10 @@
         <accelarateDuration>0.2</accelarateDuration>
         <decelarateDuration>0.2</decelarateDuration>
     </CharacterConfig>
+
+	<CharacterDetectionConfig>
+		<name>characterDetectionScript</name>
+		<detectionRadius>1.0</detectionRadius>
+		<drawRadius>true</drawRadius>
+	</CharacterDetectionConfig>
 </Data>

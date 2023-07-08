@@ -45,7 +45,7 @@ public class Character : BaseThing<CharacterConfig>
     public override void OnSpawn()
     {
         Current.MainCharacter = this;
-        Current.CameraTrace.target = Instance.transform;
+        Current.CameraTrace.SetTarget(this.Instance.transform, true, true);
 
         base.OnSpawn();
     }
@@ -62,6 +62,14 @@ public class Character : BaseThing<CharacterConfig>
             {
                 _isMoving = true;
                 OnStartMove();
+            }
+            else
+            {
+                _animator.ResetTrigger("LeftRun");
+                _animator.ResetTrigger("RightRun");
+                _animator.ResetTrigger("UpRun");
+                _animator.ResetTrigger("DownRun");
+                _animator.SetTrigger(GetTriigerByDirection(_movementDirection));
             }
         }
         else
@@ -90,14 +98,14 @@ public class Character : BaseThing<CharacterConfig>
 
     public void OnStartMove()
     {
-        Debug.Log("OnStartMove");
+        //Debug.Log("OnStartMove");
         _animator.ResetTrigger("Idle");
         _animator.SetTrigger(GetTriigerByDirection(_movementDirection));
     }
 
     public void OnStopMove()
     {
-        Debug.Log("OnStopMove");
+        //Debug.Log("OnStopMove");
         _animator.ResetTrigger("LeftRun");
         _animator.ResetTrigger("RightRun");
         _animator.ResetTrigger("UpRun");
