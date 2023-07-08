@@ -13,6 +13,8 @@ public class MainMenu : BaseView<MainMenuConfig>
     private Button _btnStart;
     private Button _btnAbout;
     private Button _btnExit;
+    private GameObject _panelAbout;
+    private Button _btnConfirm;
 
     private bool _isHide = false;
 
@@ -40,12 +42,14 @@ public class MainMenu : BaseView<MainMenuConfig>
             // ªªµÿÕº
             Current.Game.LoadMap(Config.defaultMap);
             this.Hide();
+            _isHide = true;
         });
         // start button logic
         _btnAbout = transform.Find("AboutButton").GetComponent<Button>();
         _btnAbout.onClick.AddListener(() =>
         {
             // ¡Ì“ª∏ˆui
+            _panelAbout.SetActive(true);
         });
         // start button logic
         _btnExit = transform.Find("ExitButton").GetComponent<Button>();
@@ -53,6 +57,18 @@ public class MainMenu : BaseView<MainMenuConfig>
         {
             Application.Quit(); //≈¿£°
         });
+
+        // about panel logic
+        _panelAbout = transform.Find("AboutPage").gameObject;
+        // about confirm button logic
+        _btnConfirm = transform.Find("AboutPage").Find("AboutConfirmButton").GetComponent<Button>();
+        _panelAbout.SetActive(false);
+        _btnConfirm.onClick.AddListener(() =>
+        {
+            // hide panel
+            _panelAbout.SetActive(false);
+        });
+
     }
     public override void OnUpdate()
     {
