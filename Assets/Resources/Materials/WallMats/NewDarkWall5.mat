@@ -115,6 +115,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DitherValue: 0.93
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -129,6 +130,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _inter: 0
+    - _isBrighten: 0
+    - _outline: 0
+    - _shouldLightUp: 0
     - _thickness: 0.01
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
