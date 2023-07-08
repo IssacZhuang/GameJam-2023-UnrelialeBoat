@@ -105,12 +105,14 @@ namespace Vocore
 
         public static void SendEvent(EventId evt, object target)
         {
+            
             if (!_events.TryGetValue(target, out var list))
             {
                 return;
             }
+            
 
-            for (int i = 1; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].evt == evt)
                 {

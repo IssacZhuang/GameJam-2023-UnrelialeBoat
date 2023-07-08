@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapComp : BaseMapComponent
+public class DemoLevel : BaseMapComponent
 {
 
     public override void OnCreate()

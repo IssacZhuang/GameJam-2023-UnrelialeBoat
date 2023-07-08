@@ -6,9 +6,9 @@ using Vocore;
 
 public class InteractiveObject : BaseThing<BaseThingConfig>
 {
-    public bool isDone = false; // �Ƿ��ѽ����� TrueΪ�ѽ�����FalseΪδ����
-    public int status; // 1���ؼ���Ʒ����-�ݳ� 2.�ǹؼ���Ʒ-����
-    public int showStatus; // 1������չʾ 2.��ʾ 3.����ʾ
+    public bool isDone = false; // 是否已交互过 True为已交互，False为未交互
+    public int status; // 1：关键物品交互-演出 2.非关键物品-显形
+    public int showStatus; // 1：高亮展示 2.显示 3.不显示 4.被探测未显示
 
     private int _hoverCounter = 0; // count the frames that the mouse is on the object
 
@@ -23,6 +23,7 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
     public void OnDiscover()
     {
         //do something
+        // Debug.Log("OnDiscover");
         if (isDone){
             showStatus = 2;
         }else{
@@ -36,10 +37,12 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
     {
         
       if (!isDone){ // this event is not interacteved yet
-        if (_hoverCounter >=120){
+        if (_hoverCounter >= 120){
+            // Interacte with the object
             // TODO send message to event manager
-            // Debug.Log("This object has been interacted");
-            isDone = false;
+            Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
+            WindowDialog.PopDialog("InteractiveObjectDialogTest");
+            isDone = true;
         }
         Vector3 mousePosition = GetMousePosition();
         if (CalculateDistance(this.Instance.transform.position,Current.MainCharacter.Instance.transform.position,_interactiveRange) && CalculateDistance(this.Instance.transform.position,mousePosition,_interactiveRange)){

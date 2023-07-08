@@ -50,6 +50,8 @@ public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
         _config = config;
         _instance = instance;
         _instance.SetActive(false);
+        EventBridge eventBridge = _instance.AddComponent<EventBridge>();
+        eventBridge.Entity = this;
         OnCreate();
     }
 
@@ -61,6 +63,9 @@ public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
         _config = config;
         _instance = Content.GetPrefabInstance(config.prefab);
         _instance.SetActive(false);
+        _instance.AddComponent<EventBridge>();
+        EventBridge eventBridge = _instance.AddComponent<EventBridge>();
+        eventBridge.Entity = this;
         OnCreate();
     }
 

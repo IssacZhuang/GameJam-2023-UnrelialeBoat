@@ -63,9 +63,7 @@ public class BaseView<TConfig> :  IView where TConfig : BaseViewConfig
     /// </summary>
     public void Initialize(TConfig config)
     {
-        _config = config;
-        _instance = Content.GetPrefabInstance(config.prefab);
-        OnCreate();
+        Initialize(config, Content.GetPrefabInstance(config.prefab));
     }
 
     /// <summary>
