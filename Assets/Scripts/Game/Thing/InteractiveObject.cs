@@ -38,7 +38,7 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
       if (!isDone){ // this event is not interacteved yet
         if (_hoverCounter >=120){
             // TODO send message to event manager
-            // Debug.Log("This object has been interacted");
+            Debug.Log("This object has been interacted");
             isDone = false;
         }
         Vector3 mousePosition = GetMousePosition();

@@ -45,7 +45,7 @@ public class CharacterDetection : BaseThing<CharacterDetectionConfig>
             if (collider.gameObject != this.Instance.gameObject)
             {
                 // 处理检测到的其他物体
-                Debug.Log("检测到物体: " + collider.gameObject.name);
+                //Debug.Log("检测到物体: " + collider.gameObject.name);
             }
         }
         if (Config.drawRadius)
