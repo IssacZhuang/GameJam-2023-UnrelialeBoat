@@ -55,6 +55,7 @@ public class AddressableHandler : AssetPostprocessor
         }
     }
 
+    public static readonly ResourceFolderInfo InfoAnimator = ResourceFolderInfo.Create("Assets/Resources/Animations", "Animation_", ".controller");
     public static readonly ResourceFolderInfo InfoAnimation = ResourceFolderInfo.Create("Assets/Resources/Animations", "Animation_", ".anim");
     public static readonly ResourceFolderInfo InfoSound = ResourceFolderInfo.Create("Assets/Resources/Sounds", "Sound_", ".mp3", ".wav", ".ogg");
     public static readonly ResourceFolderInfo InfoPrefab = ResourceFolderInfo.Create("Assets/Resources/Prefabs", "Prefab_", ".prefab");
@@ -114,6 +115,10 @@ public class AddressableHandler : AssetPostprocessor
                 if (InfoAnimation.Match(importedAsset))
                 {
                     HandleAsset<AnimationClip>(importedAsset, InfoAnimation);
+                }
+                else if(InfoAnimator.Match(importedAsset))
+                {
+                    HandleAsset<RuntimeAnimatorController>(importedAsset, InfoAnimator);
                 }
                 else if(InfoMaterial.Match(importedAsset))
                 {
