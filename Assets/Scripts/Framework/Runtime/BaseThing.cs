@@ -151,5 +151,10 @@ public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
         _eventIds.Add(eventId);
     }
 
+    protected void BindEvent(EventId eventId, Action callback)
+    {
+        this.RegisterEvent(eventId, callback);
+        _eventIds.Add(eventId);
+    }
     #endregion
 }
