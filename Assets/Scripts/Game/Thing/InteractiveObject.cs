@@ -6,9 +6,9 @@ using Vocore;
 
 public class InteractiveObject : BaseThing<BaseThingConfig>
 {
-    public bool isDone = false; // �Ƿ��ѽ����� TrueΪ�ѽ�����FalseΪδ����
-    public int status; // 1���ؼ���Ʒ����-�ݳ� 2.�ǹؼ���Ʒ-����
-    public int showStatus; // 1������չʾ 2.��ʾ 3.����ʾ
+    public bool isDone = false; // 是否已交互过 True为已交互，False为未交互
+    public int status; // 1：关键物品交互-演出 2.非关键物品-显形
+    public int showStatus; // 1：高亮展示 2.显示 3.不显示 4.被探测未显示
 
     private int _hoverCounter = 0; // count the frames that the mouse is on the object
 
