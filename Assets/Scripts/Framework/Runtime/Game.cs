@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
         }
 
         _currentMap = Map.CreateMap(config);
+        _currentMap.Scene.transform.position = Vector3.zero;
     }
 
     public void RelaodMap()
