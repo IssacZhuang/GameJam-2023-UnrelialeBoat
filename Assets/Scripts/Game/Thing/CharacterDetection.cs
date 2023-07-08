@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vocore;
 
 public class CharacterDetection : BaseThing<CharacterDetectionConfig>
 {
@@ -46,6 +47,13 @@ public class CharacterDetection : BaseThing<CharacterDetectionConfig>
             {
                 // 处理检测到的其他物体
                 Debug.Log("检测到物体: " + collider.gameObject.name);
+                var eventBridge = collider.gameObject.GetComponent<EventBridge>();
+                if (eventBridge != null)
+                {
+                    Debug.Log("对物体 " + collider.gameObject.name+"发出碰触事件.");
+                    EventBridge.SendEventByGameObject(collider.gameObject, EventCharacter.eventCharacterDetectObject);
+                }
+
             }
         }
         if (Config.drawRadius)
