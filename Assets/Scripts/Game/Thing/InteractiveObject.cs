@@ -6,19 +6,52 @@ using Vocore;
 
 public class InteractiveObject : BaseThing<BaseThingConfig>
 {
-    public bool isDone = false; // ÊÇ·ñÒÑ½»»¥¹ı TrueÎªÒÑ½»»¥£¬FalseÎªÎ´½»»¥
-    public int status; // 1£º¹Ø¼üÎïÆ·½»»¥-Ñİ³ö 2.·Ç¹Ø¼üÎïÆ·-ÏÔĞÎ
-    public int showStatus; // 1£º¸ßÁÁÕ¹Ê¾ 2.ÏÔÊ¾ 3.²»ÏÔÊ¾ 4.±»Ì½²âÎ´ÏÔÊ¾
+    public bool isDone = false; // æ˜¯å¦å·²äº¤äº’è¿‡ Trueä¸ºå·²äº¤äº’ï¼ŒFalseä¸ºæœªäº¤äº’
+    public int status; // 1ï¼šå…³é”®ç‰©å“äº¤äº’-æ¼”å‡º 2.éå…³é”®ç‰©å“-æ˜¾å½¢
+    public int showStatus; // 1ï¼šé«˜äº®å±•ç¤º 2.æ˜¾ç¤º 3.ä¸æ˜¾ç¤º 4.è¢«æ¢æµ‹æœªæ˜¾ç¤º
+
+    private int _hoverCounter = 0; // count the frames that the mouse is on the object
+
+    private float _interactiveRange = 1.5f;  // the interactive range of the object
 
     public override void OnSpawn()
     {
         base.OnSpawn();
-        this.BindEvent<int>(EventHoverObject.eventHoverObject, OnHover);
+        this.BindEvent(EventHoverObject.eventHoverObject, OnDiscover);
     }
 
-    public void OnHover(int damage)
+    public void OnDiscover()
     {
         //do something
+        if (isDone){
+            showStatus = 2;
+        }else{
+            showStatus = 4;
+        }
+        
+    }
+
+
+    public override void OnTick()
+    {
+        
+      if (!isDone){ // this event is not interacteved yet
+        if (_hoverCounter >=120){
+            // TODO send message to event manager
+            // Debug.Log("This object has been interacted");
+            isDone = false;
+        }
+        Vector3 mousePosition = GetMousePosition();
+        if (CalculateDistance(this.Instance.transform.position,Current.MainCharacter.Instance.transform.position,_interactiveRange) && CalculateDistance(this.Instance.transform.position,mousePosition,_interactiveRange)){
+            _hoverCounter ++;
+        }else{
+            _hoverCounter = 0;
+        }
+      }
+      if (Input.GetMouseButton(0)){
+        //
+      }
+        base.OnTick();
     }
 
     public override void OnUpdate()
@@ -27,11 +60,21 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
         {
             if (status == 1 && showStatus == 2)
             {
-                // Ñİ³ö
-                Debug.Log("Ñİ³ö");
+                // ï¿½İ³ï¿½
+                Debug.Log("ï¿½İ³ï¿½");
             }
         }
 
         base.OnUpdate();
+    }
+
+    private bool CalculateDistance(Vector3 target1Position,Vector3 target2Position, float distance){
+        return (target1Position-target2Position).sqrMagnitude < distance;
+    }
+
+    private Vector3 GetMousePosition(){
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Mathf.Abs(Camera.main.transform.position.z);
+        return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 }
