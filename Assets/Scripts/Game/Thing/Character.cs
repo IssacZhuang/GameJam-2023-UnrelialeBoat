@@ -45,7 +45,7 @@ public class Character : BaseThing<CharacterConfig>
     public override void OnSpawn()
     {
         Current.MainCharacter = this;
-        Current.CameraTrace.target = Instance.transform;
+        Current.CameraTrace.SetTarget(this.Instance.transform, true, true);
 
         base.OnSpawn();
     }
