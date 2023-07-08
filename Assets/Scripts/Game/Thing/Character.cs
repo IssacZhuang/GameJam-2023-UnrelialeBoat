@@ -6,6 +6,7 @@ using Vocore;
 public class Character : BaseThing<CharacterConfig>
 {
     private Func<float, float> _speedCurve;
+    private bool _isPaused = false;
     private float _t;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -24,6 +25,7 @@ public class Character : BaseThing<CharacterConfig>
         {KeyCode.LeftArrow, Vector2.left},
         {KeyCode.RightArrow, Vector2.right},
     };
+
 
     public override void OnCreate()
     {
@@ -50,47 +52,54 @@ public class Character : BaseThing<CharacterConfig>
     {
         Current.MainCharacter = this;
         Current.CameraTrace.SetTarget(this.Instance.transform, true, true);
+        this.BindEvent<bool>(EventCharacter.eventSetCharacterPaused, SetCharacterIsPasued);
 
         base.OnSpawn();
     }
 
     public override void OnUpdate()
     {
-        if (HasMovementKey())
-        {
-            _movementDirection = GetMovementDirection();
-            _t += Time.deltaTime / Config.accelarateDuration;
-            _t = Mathf.Clamp01(_t);
-
-            if (!_isMoving)
+        if (!_isPaused){
+            _animator.enabled = true;
+            if (HasMovementKey())
             {
-                _isMoving = true;
-                OnStartMove();
+                _movementDirection = GetMovementDirection();
+                _t += Time.deltaTime / Config.accelarateDuration;
+                _t = Mathf.Clamp01(_t);
+
+                if (!_isMoving)
+                {
+                    _isMoving = true;
+                    OnStartMove();
+                }
+                else
+                {
+                    _animator.ResetTrigger("LeftRun");
+                    _animator.ResetTrigger("RightRun");
+                    _animator.ResetTrigger("UpRun");
+                    _animator.ResetTrigger("DownRun");
+                    _animator.SetTrigger(GetTriigerByDirection(_movementDirection));
+                }
             }
             else
             {
-                _animator.ResetTrigger("LeftRun");
-                _animator.ResetTrigger("RightRun");
-                _animator.ResetTrigger("UpRun");
-                _animator.ResetTrigger("DownRun");
-                _animator.SetTrigger(GetTriigerByDirection(_movementDirection));
-            }
-        }
-        else
-        {
-            _t -= Time.deltaTime * Config.deaccelarateDuration;
-            _t = Mathf.Clamp01(_t);
-            _movementDirection = Vector2.zero;
+                _t -= Time.deltaTime * Config.deaccelarateDuration;
+                _t = Mathf.Clamp01(_t);
+                _movementDirection = Vector2.zero;
 
-            if (_isMoving)
-            {
-                _isMoving = false;
-                OnStopMove();
+                if (_isMoving)
+                {
+                    _isMoving = false;
+                    OnStopMove();
+                }
             }
+
+            float speed = _speedCurve(_t) * Config.speed;
+            _velocity = _movementDirection.normalized * speed;
+        }else{
+            _animator.enabled = false;
         }
 
-        float speed = _speedCurve(_t) * Config.speed;
-        _velocity = _movementDirection.normalized * speed;
 
     }
 
@@ -166,5 +175,9 @@ public class Character : BaseThing<CharacterConfig>
             }
         }
         return movementDirection;
+    }
+
+    private void SetCharacterIsPasued(bool flag){
+        _isPaused = flag;
     }
 }
