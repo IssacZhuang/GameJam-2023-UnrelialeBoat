@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <CharacterConfig>
+        <name>character1</name>
+        <speed>2</speed>
+        <speedCurve>(0.4, 0, 0.6, 1)</speedCurve>
+        <accelarateDuration>0.2</accelarateDuration>
+        <decelarateDuration>0.2</decelarateDuration>
+    </CharacterConfig>
+</Data>
