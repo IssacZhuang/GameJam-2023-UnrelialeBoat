@@ -23,6 +23,7 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
     public void OnDiscover()
     {
         //do something
+        // Debug.Log("OnDiscover");
         if (isDone){
             showStatus = 2;
         }else{
@@ -36,10 +37,12 @@ public class InteractiveObject : BaseThing<BaseThingConfig>
     {
         
       if (!isDone){ // this event is not interacteved yet
-        if (_hoverCounter >=120){
+        if (_hoverCounter >= 120){
+            // Interacte with the object
             // TODO send message to event manager
-            Debug.Log("This object has been interacted");
-            isDone = false;
+            Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
+            WindowDialog.PopDialog("InteractiveObjectDialogTest");
+            isDone = true;
         }
         Vector3 mousePosition = GetMousePosition();
         if (CalculateDistance(this.Instance.transform.position,Current.MainCharacter.Instance.transform.position,_interactiveRange) && CalculateDistance(this.Instance.transform.position,mousePosition,_interactiveRange)){

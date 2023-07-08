@@ -27,7 +27,7 @@ public class XmlConfigLoader
     /// </summary>
     public void Load()
     {
-        Load(ConstGlobal.PathConfig);
+        Load(ConstGlobal.GetConfigDirectory());
     }
 
     /// <summary>
@@ -111,4 +111,6 @@ public class XmlConfigLoader
             Debug.LogError(ErrorFormat.InvalidXmlDocument(xmlContent, e.ToString()));
         }
     }
+
+
 }

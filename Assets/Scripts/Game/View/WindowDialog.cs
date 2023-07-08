@@ -54,6 +54,7 @@ public class WindowDialog : BaseView<DialogConfig>
             }
         });
 
+        Current.SendGlobalEvent(EventCharacter.eventSetCharacterPaused, true);
         _currentDialogIndex = -1;
         NextDialog();
     }
@@ -91,6 +92,7 @@ public class WindowDialog : BaseView<DialogConfig>
         }
         else
         {
+            Current.SendGlobalEvent(EventCharacter.eventSetCharacterPaused, false);
             Current.ViewManager.Remove(this);
         }
     }
