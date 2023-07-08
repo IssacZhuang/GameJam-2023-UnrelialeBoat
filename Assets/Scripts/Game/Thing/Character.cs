@@ -12,6 +12,7 @@ public class Character : BaseThing<CharacterConfig>
     private Vector2 _movementDirection = Vector2.zero;
     private Vector2 _velocity = Vector2.zero;
     private bool _isMoving = false;
+
     private static readonly Dictionary<KeyCode, Vector2> _keyMap = new Dictionary<KeyCode, Vector2>()
     {
         {KeyCode.W, Vector2.up},

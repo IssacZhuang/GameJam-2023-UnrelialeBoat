@@ -2,7 +2,7 @@
 <Data>
     <MapConfig>
         <name>Scene1</name>
-        <scene>DemoScene</scene>
+        <scene>MapComp</scene>
         <description>示例地图..sss.</description>
     </MapConfig>
 
@@ -10,5 +10,8 @@
         <name>Scene2</name>
         <scene>DemoScene2</scene>
         <description>示例地图..sss.</description>
+		<compoment>
+			<li>MapComp</li>
+		</compoment>
     </MapConfig>
 </Data>
