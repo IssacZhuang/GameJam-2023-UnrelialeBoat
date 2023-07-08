@@ -3,6 +3,6 @@
     <GameConfig>
         <name>GameConfig</name>
         <defaultMap>Scene1</defaultMap>
-        <tickInterval>0.0166666666</tickInterval>
+        <tickRate>60</tickRate>
     </GameConfig>
 </Data>

@@ -55,6 +55,7 @@ public class Game : MonoBehaviour
         DatabaseLoader.Load();
 
         GameConfig config = Content.GetConfig<GameConfig>(gameConfig, true);
+        Time.fixedDeltaTime = config.tickRate;
 
         LoadMap(config.defaultMap);
     }
