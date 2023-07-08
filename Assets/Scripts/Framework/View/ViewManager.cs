@@ -24,8 +24,7 @@ public class ViewManager : MonoBehaviour, IEventReciever
     public void Push(IView view)
     {
         _views.Add(view);
-
-        view.OnCreate();
+        view.transform.SetParent(transform, false);
     }
 
     public void Remove(IView view)

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Data>
     <DialogConfig>
+        <name>DemoDialog</name>
+        <prefab>WindowDialog</prefab>
         <defaultSpeaker>LYM</defaultSpeaker>
+        <textReadInterval>0.08</textReadInterval>
         <content>
             <li>
                 <speaker>LYM</speaker>
@@ -10,6 +13,10 @@
             <li>
                 <speaker>LYM</speaker>
                 <text>咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜。。</text>
+            </li>
+            <li>
+                <speaker>LYM</speaker>
+                <text>auhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh。。</text>
             </li>
         </content>
     </DialogConfig>
