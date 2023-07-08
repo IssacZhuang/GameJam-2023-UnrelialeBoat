@@ -19,6 +19,10 @@ public class Character : BaseThing<CharacterConfig>
         {KeyCode.S, Vector2.down},
         {KeyCode.A, Vector2.left},
         {KeyCode.D, Vector2.right},
+        {KeyCode.UpArrow, Vector2.up},
+        {KeyCode.DownArrow, Vector2.down},
+        {KeyCode.LeftArrow, Vector2.left},
+        {KeyCode.RightArrow, Vector2.right},
     };
 
     public override void OnCreate()
