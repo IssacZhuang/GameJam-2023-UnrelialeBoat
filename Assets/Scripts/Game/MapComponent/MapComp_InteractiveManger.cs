@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Unity;
+using System.Collections;
 
 public class MapComp_InteractiveManger : BaseMapComponent
 {
     private const int _tickInterval = 1;
     private int _tick = 0;
+    private bool _shouldCount = false;
+    // create a timer
+    private float c = 0.0f;
 
     public override void OnCreate()
     {
         base.OnCreate();
+        Debug.Log("InteractiveManger OnCreate");
     }
 
     public override void OnTick()
@@ -21,6 +26,13 @@ public class MapComp_InteractiveManger : BaseMapComponent
         {
             CheckCondition();
         }
+        //Debug.Log("Tick");
+    }
+
+    public override void OnUpdate()
+    {
+        // update timer
+        c += Time.deltaTime;
     }
 
     public void CheckCondition()
@@ -44,16 +56,26 @@ public class MapComp_InteractiveManger : BaseMapComponent
                 }
             }
         }
-        Debug.Log("Count: " + count);
-        Debug.Log("remainCount: " + remainCount);
 
-
+        
         if (isAllCondition){
             // TODO 游戏结束 GameOver
             // WindowDialog.PopDialog("GameOverDialogTest");
             Current.Mask.RevealScene();
             Current.AudioManager.ChangeBGM();
             Debug.Log("This area is done!");
+
+            // call WindowEndGame.Pop() after 5 seconds
+            _shouldCount = true;
+
         }
+        if(_shouldCount){
+            if(c >= 10.0f){
+                WindowEndGame.Pop();
+                Debug.Log("windowEndGame!");
+                _shouldCount = false;
+            }
+        }
+
     }
 }
