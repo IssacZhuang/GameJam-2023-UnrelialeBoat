@@ -37,9 +37,17 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
     public override void OnTick()
     {
       if (!_isDone){ // this event is not interacteved yet
+        Vector3 mousePosition = GetMousePosition();
+        // if the interactive object is in the range of the character and the mouse position is in the range of the object
+        if (CalculateDistance(this.Instance.transform.position,Current.MainCharacter.Instance.transform.position,_interactiveRange) && CalculateDistance(this.Instance.transform.position,mousePosition,_interactiveRange)){  
+            if (_hoverCounter ++ == 0){
+                this.Instance.GetComponent<EventBridge>().SendEvent(EventObjectBrightness.eventDiscoverLineObjectLoop);
+            }
+        }else{
+            _hoverCounter = 0;
+        }
 
         if (_hoverCounter >= 120){
-                //   Debug.Log("触发");
             // Interacte with the object
             // TODO send message to event manager
             if (Config.isDoor){ // if its a door
@@ -47,10 +55,12 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
                     if (Current.MainCharacter.GetHasKey()){ // has key
                         WindowDialog.PopDialog(Config.dialogConfig);
                         this.Instance.GetComponent<BoxCollider2D>().enabled = false;
+                        Current.AudioManager.PlayAsync("doorlock",0.5f);
                         _isDone = true;
                     }else{ // no key
                         Debug.Log("no key");
                         FloatTip.Pop(Config.description);
+                        Current.AudioManager.PlayAsync("doorlock",0.5f);
                     }
                 }else{  // if its a normal door
                     FloatTip.Pop(Config.description);
@@ -59,49 +69,33 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
                     _isDone = true;
                 }
 
-            }else if (Config.isKey){
+            }else if (Config.isKey){ // if its contains a key
                     WindowDialog.PopDialog(Config.dialogConfig);
                     Current.MainCharacter.SetHasKey(true);
                     _isDone = true;
             }else{ // if its not a door
                 if (_isKeyItem){ // if its a key item
                     WindowDialog.PopDialog(Config.dialogConfig);
+                    Current.AudioManager.PlayAsync(Config.name,1f);
                     _isDone = true;
                 }else{ // if its not a key item
                     FloatTip.Pop(Config.description);
                     _isDone = true;
                 }
             }
-            _hoverCounter = 0;  // reset the counter
+            // _hoverCounter = 0;  // reset the counter
+            this.Instance.GetComponent<EventBridge>().SendEvent(EventObjectBrightness.eventDiscoverObject);
+            
         }
-        Vector3 mousePosition = GetMousePosition();
-        // if the interactive object is in the range of the character and the mouse position is in the range of the object
-        if (CalculateDistance(this.Instance.transform.position,Current.MainCharacter.Instance.transform.position,_interactiveRange) && CalculateDistance(this.Instance.transform.position,mousePosition,_interactiveRange)){  
-            if (_hoverCounter ++ == 0){
-                Debug.Log("Bright");
-                this.Instance.GetComponent<EventBridge>().SendEvent(EventObjectBrightness.eventDiscoverLineObjectLoop);
-            }
-        }else{
-            _hoverCounter = 0;
-        }
-      }
-      if (Input.GetMouseButton(0)){
-        //
       }
         base.OnTick();
     }
 
     public override void OnUpdate()
     {
-        // if (!_isDone)
-        // {
-        //     if (_isKeyItem == 1 && _showStatus == 2)
-        //     {
-        //         // �ݳ�
-        //         Debug.Log("�ݳ�");
-        //     }
-        // }
-
+        if (!_isDone){
+            Current.WaveShaderController.AddBuffer(this.Instance.transform.position);
+        }
         base.OnUpdate();
     }
 
@@ -111,8 +105,8 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
 
     private Vector3 GetMousePosition(){
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = Mathf.Abs(Camera.main.transform.position.z);
-        return Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = Mathf.Abs(Current.SceneCamera.transform.position.z);
+        return Current.SceneCamera.ScreenToWorldPoint(mousePosition);
     }
 
         public bool IsDone => _isDone;
