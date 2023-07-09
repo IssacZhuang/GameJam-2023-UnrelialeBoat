@@ -1,12 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using UnityEngine;
+using Unity;
 
 public class MapComp_InteractiveManger : BaseMapComponent
 {
     private const int _tickInterval = 1;
     private int _tick = 0;
+
+    public override void OnCreate()
+    {
+        base.OnCreate();
+        Debug.Log("InteractiveManger OnCreate");
+    }
 
     public override void OnTick()
     {
@@ -15,6 +22,7 @@ public class MapComp_InteractiveManger : BaseMapComponent
         {
             CheckCondition();
         }
+        Debug.Log("Tick");
     }
 
     public void CheckCondition()
@@ -32,7 +40,8 @@ public class MapComp_InteractiveManger : BaseMapComponent
         }
         if (isAllCondition){
             // TODO 游戏结束 GameOver
-            WindowDialog.PopDialog("GameOverDialogTest");
+            // WindowDialog.PopDialog("GameOverDialogTest");
+            Debug.Log("This area is done!");
         }
     }
 }
