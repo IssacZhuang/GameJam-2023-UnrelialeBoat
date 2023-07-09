@@ -1,6 +1,6 @@
 using System;
 
-public class BaseMapComponent
+public class BaseMapComponent: IEventReciever
 {
     private MapConfig _config;
     private Map _map;

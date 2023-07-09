@@ -188,5 +188,17 @@ public class Map
                 Debug.LogError(e);
             }
         }
+
+        for (int i = 0; i < _components.Count; i++)
+        {
+            try
+            {
+                _components[i].SendEvent<T>(eventId, value);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
     }
 }
