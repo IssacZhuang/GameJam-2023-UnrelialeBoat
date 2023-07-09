@@ -22,7 +22,7 @@ public class MapComp_InteractiveManger : BaseMapComponent
         {
             CheckCondition();
         }
-        Debug.Log("Tick");
+        //Debug.Log("Tick");
     }
 
     public void CheckCondition()
