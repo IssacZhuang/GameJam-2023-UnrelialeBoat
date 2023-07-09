@@ -43,5 +43,39 @@
         </content>
     </DialogConfig>
 
+    <DialogConfig>
+        <name>InteractiveObjectDoorTest</name>
+        <prefab>WindowDialog</prefab>
+        <defaultSpeaker>SBLYM</defaultSpeaker>
+        <textReadInterval>0.08</textReadInterval>
+        <content>
+            <li>
+                <speaker>SBLYM</speaker>
+                <text>You got the key. Good job.</text>
+            </li>
+            <li>
+                <speaker>SBLYM</speaker>
+                <text>Now the door is open, you can get in then.</text>
+            </li>
+            <li>
+                <speaker>SBLYM</speaker>
+                <text>yeeeeeah.</text>
+            </li>
+        </content>
+    </DialogConfig>
+
+        <DialogConfig>
+        <name>InteractiveObjectKeyTest</name>
+        <prefab>WindowDialog</prefab>
+        <defaultSpeaker>SBLYM</defaultSpeaker>
+        <textReadInterval>0.08</textReadInterval>
+        <content>
+            <li>
+                <speaker>SBLYM</speaker>
+                <text>You find the key! Here it is.</text>
+            </li>
+        </content>
+    </DialogConfig>
+
 	
 </Data>

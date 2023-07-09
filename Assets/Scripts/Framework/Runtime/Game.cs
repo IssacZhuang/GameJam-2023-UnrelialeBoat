@@ -58,7 +58,7 @@ public class Game : MonoBehaviour
         GameConfig config = Content.GetConfig<GameConfig>(gameConfig, true);
         Time.fixedDeltaTime = 1 / config.tickRate;
 
-        LoadMap(config.defaultMap);
+        // LoadMap(config.defaultMap);
         MainMenu.PopMainMenu();
     }
 
