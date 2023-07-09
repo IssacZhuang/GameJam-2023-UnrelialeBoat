@@ -17,8 +17,20 @@ public class WindowDialog : BaseView<DialogConfig>
     private TMP_Text _textContent;
     private TMP_Text _textSpeaker;
     private Button _btnBg;
+    private Action _callback;
+    public Action Callback
+    {
+        get
+        {
+            return _callback;
+        }
+        set
+        {
+            _callback = value;
+        }
+    }
 
-    public static void PopDialog(string name)
+    public static void PopDialog(string name, Action callback = null)
     {
         DialogConfig config = Content.GetConfig<DialogConfig>(name);
         if (config == null)
@@ -29,6 +41,7 @@ public class WindowDialog : BaseView<DialogConfig>
 
         WindowDialog dialog = new WindowDialog();
         dialog.Initialize(config);
+        dialog.Callback = callback;
         Current.ViewManager.Push(dialog);
     }
 
@@ -94,6 +107,10 @@ public class WindowDialog : BaseView<DialogConfig>
         {
             Current.SendGlobalEvent(EventCharacter.eventSetCharacterPaused, false);
             Current.ViewManager.Remove(this);
+            if (_callback != null)
+            {
+                _callback();
+            }
         }
     }
 
