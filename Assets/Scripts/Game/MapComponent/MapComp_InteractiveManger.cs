@@ -27,12 +27,12 @@ public class MapComp_InteractiveManger : BaseMapComponent
             CheckCondition();
         }
         //Debug.Log("Tick");
+        c += Time.deltaTime;
     }
 
     public override void OnUpdate()
     {
         // update timer
-        c += Time.deltaTime;
     }
 
     public void CheckCondition()
@@ -70,7 +70,9 @@ public class MapComp_InteractiveManger : BaseMapComponent
 
         }
         if(_shouldCount){
-            if(c >= 10.0f){
+            Debug.Log("timer: " + c);
+
+            if(c >= 40.0f){
                 WindowEndGame.Pop();
                 Debug.Log("windowEndGame!");
                 _shouldCount = false;
