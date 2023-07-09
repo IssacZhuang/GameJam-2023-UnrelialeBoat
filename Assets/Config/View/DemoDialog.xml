@@ -77,5 +77,24 @@
         </content>
     </DialogConfig>
 
+        </DialogConfig>
+
+        <DialogConfig>
+        <name>GameOverDialogTest</name>
+        <prefab>WindowDialog</prefab>
+        <defaultSpeaker>SBLYM</defaultSpeaker>
+        <textReadInterval>0.08</textReadInterval>
+        <content>
+            <li>
+                <speaker>SBLYM</speaker>
+                <text>You find all the key items! Congratulations!</text>
+            </li>
+            <li>
+                <speaker>SBLYM</speaker>
+                <text>The Game is over, Thanks for playing.</text>
+            </li>
+        </content>
+    </DialogConfig>
+
 	
 </Data>

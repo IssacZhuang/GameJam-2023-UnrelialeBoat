@@ -25,8 +25,14 @@ public class MapComp_InteractiveManger : BaseMapComponent
         {
             if (entities.ElementAt(i) is InteractiveObject interactive)
             {
-                //todo
+                if (interactive.IsKeyItem && !interactive.IsDone){
+                    isAllCondition = false;
+                }
             }
+        }
+        if (isAllCondition){
+            // TODO 游戏结束 GameOver
+            WindowDialog.PopDialog("GameOverDialogTest");
         }
     }
 }

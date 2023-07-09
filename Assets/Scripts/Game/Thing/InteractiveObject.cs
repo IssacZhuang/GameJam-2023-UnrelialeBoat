@@ -6,7 +6,7 @@ using Vocore;
 
 public class InteractiveObject : BaseThing<InteractiveObjectConfig>
 {
-    public bool _isDone = false;  // 是否已交互过 True为已交互，False为未交互
+    private bool _isDone = false;  // 是否已交互过 True为已交互，False为未交互
     private bool _isKeyItem; // 是否为关键物品交互-演出
     private int _showStatus; // 1：高亮展示 2.显示 3.不显示 4.被探测未显示
 
