@@ -1,5 +1,5 @@
 using Vocore;
-
+using UnityEngine;
 public static class Current
 {
     public static Game Game => Game.Instance;
@@ -8,6 +8,7 @@ public static class Current
     public static ViewManager ViewManager { get; set; }
     public static AudioManager AudioManager { get; set; }
     public static WaveShaderController WaveShaderController { get; set; }
+    public static Camera SceneCamera => WaveShaderController.sceneCamera;
 
     public static Character MainCharacter {
         get;set;
