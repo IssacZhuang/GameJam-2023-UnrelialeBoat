@@ -77,7 +77,10 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
         Vector3 mousePosition = GetMousePosition();
         // if the interactive object is in the range of the character and the mouse position is in the range of the object
         if (CalculateDistance(this.Instance.transform.position,Current.MainCharacter.Instance.transform.position,_interactiveRange) && CalculateDistance(this.Instance.transform.position,mousePosition,_interactiveRange)){  
-            _hoverCounter ++;
+            if (_hoverCounter ++ == 0){
+                Debug.Log("Bright");
+                this.Instance.GetComponent<EventBridge>().SendEvent(EventObjectBrightness.eventDiscoverLineObjectLoop);
+            }
         }else{
             _hoverCounter = 0;
         }
