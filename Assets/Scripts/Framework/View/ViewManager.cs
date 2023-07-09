@@ -9,6 +9,8 @@ public class ViewManager : MonoBehaviour, IEventReciever
 {
     private List<IView> _views = new List<IView>();
     private Canvas _canvas;
+    private Vector2 _screenSize;
+    private Canvas _uiCanvas;
 
     void Awake()
     {
@@ -18,6 +20,9 @@ public class ViewManager : MonoBehaviour, IEventReciever
             Debug.LogError("ViewManager 需要有Canvas组件");
         }
         Current.ViewManager = this;
+        _uiCanvas = this.GetComponent<Canvas>();
+        _screenSize = new Vector2(Screen.width, Screen.height);
+        OnScreenResize();
 
     }
 
@@ -92,6 +97,13 @@ public class ViewManager : MonoBehaviour, IEventReciever
                 Debug.LogError(e);
             }
         }
+
+        if (_screenSize.x != Screen.width || _screenSize.y != Screen.height)
+        {
+            _screenSize.x = Screen.width;
+            _screenSize.y = Screen.height;
+            OnScreenResize();
+        }
     }
 
     public void OnDestroy()
@@ -129,5 +141,10 @@ public class ViewManager : MonoBehaviour, IEventReciever
                 Debug.LogError(e);
             }
         }
+    }
+
+    private void OnScreenResize()
+    {
+        _uiCanvas.scaleFactor = _screenSize.x / 1920f;
     }
 }

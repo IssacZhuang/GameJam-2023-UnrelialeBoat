@@ -65,7 +65,7 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
                 }else{  // if its a normal door
                     FloatTip.Pop(Config.description);
                     this.Instance.GetComponent<BoxCollider2D>().enabled = false;
-                    Current.AudioManager.PlayAsync("doorlock");
+                    Current.AudioManager.PlayAsync("NotKeyDoor");
                     _isDone = true;
                 }
 
