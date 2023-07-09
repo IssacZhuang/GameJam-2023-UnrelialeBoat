@@ -48,10 +48,14 @@ public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
     public void Initialize(TConfig config, GameObject instance)
     {
         _config = config;
-        _instance = instance;
-        _instance.SetActive(false);
-        EventBridge eventBridge = _instance.AddComponent<EventBridge>();
-        eventBridge.Entity = this;
+        if (instance != null)
+        {
+            _instance = instance;
+            _instance.SetActive(false);
+            EventBridge eventBridge = _instance.AddComponent<EventBridge>();
+            eventBridge.Entity = this;
+        }
+
         OnCreate();
     }
 
@@ -61,11 +65,15 @@ public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
     public void Initialize(TConfig config)
     {
         _config = config;
-        _instance = Content.GetPrefabInstance(config.prefab);
-        _instance.SetActive(false);
-        _instance.AddComponent<EventBridge>();
-        EventBridge eventBridge = _instance.AddComponent<EventBridge>();
-        eventBridge.Entity = this;
+        if (!config.prefab.IsNullOrEmpty())
+        {
+            _instance = Content.GetPrefabInstance(config.prefab);
+            _instance.SetActive(false);
+            _instance.AddComponent<EventBridge>();
+            EventBridge eventBridge = _instance.AddComponent<EventBridge>();
+            eventBridge.Entity = this;
+        }
+
         OnCreate();
     }
 
@@ -76,7 +84,7 @@ public class BaseThing<TConfig> : IEntity where TConfig : BaseThingConfig
     {
         _map = map;
         _isSpawned = true;
-        _instance.SetActive(true);
+        _instance?.SetActive(true);
         OnSpawn();
     }
 
