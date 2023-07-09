@@ -29,18 +29,32 @@ public class MapComp_InteractiveManger : BaseMapComponent
     {
         var entities = Map.Entities;
         bool isAllCondition = true;
+        int count = 0;
+        int remainCount = 0;
         for (int i = 0; i < entities.Count(); i++)
         {
             if (entities.ElementAt(i) is InteractiveObject interactive)
             {
+                if (interactive.IsKeyItem){
+                    count++;
+                    if (!interactive.IsDone){
+                        remainCount++;
+                    }
+                }
                 if (interactive.IsKeyItem && !interactive.IsDone){
                     isAllCondition = false;
                 }
             }
         }
+        Debug.Log("Count: " + count);
+        Debug.Log("remainCount: " + remainCount);
+
+
         if (isAllCondition){
             // TODO 游戏结束 GameOver
             // WindowDialog.PopDialog("GameOverDialogTest");
+            Current.Mask.RevealScene();
+            Current.AudioManager.ChangeBGM();
             Debug.Log("This area is done!");
         }
     }

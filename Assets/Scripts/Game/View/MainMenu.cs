@@ -40,6 +40,7 @@ public class MainMenu : BaseView<MainMenuConfig>
         {
             // ����ͼ
             Current.Game.LoadMap(Config.defaultMap);
+            Current.AudioManager.PlayAsync("elevator");
             this.Hide();
             _isHide = true;
         });
