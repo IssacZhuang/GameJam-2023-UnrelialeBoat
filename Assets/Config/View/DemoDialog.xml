@@ -1,98 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Data>
     <DialogConfig>
-        <name>DemoDialog</name>
+        <name>suomen</name>
         <prefab>WindowDialog</prefab>
-        <defaultSpeaker>LYM</defaultSpeaker>
+        <defaultSpeaker>时光</defaultSpeaker>
         <textReadInterval>0.08</textReadInterval>
         <content>
             <li>
-                <speaker>LYM</speaker>
-                <text>阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧。。</text>
-            </li>
-            <li>
-                <speaker>LYM</speaker>
-                <text>咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜。。</text>
-            </li>
-            <li>
-                <speaker>LYM</speaker>
-                <text>auhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh。。</text>
+                <speaker>时光</speaker>
+                <text>这门是怎么锁上的？！</text>
             </li>
         </content>
     </DialogConfig>
 
+	<DialogConfig>
+		<name>jiepaiqi</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>没想到过了这么久还能用。</text>
+			</li>
+		</content>
+	</DialogConfig>
 
-    <DialogConfig>
-        <name>InteractiveObjectDialogTest</name>
-        <prefab>WindowDialog</prefab>
-        <defaultSpeaker>SBLYM</defaultSpeaker>
-        <textReadInterval>0.08</textReadInterval>
-        <content>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧阿巴阿巴啊吧啊吧。。</text>
-            </li>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜咕噜。。</text>
-            </li>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>auhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh。。</text>
-            </li>
-        </content>
-    </DialogConfig>
+	<DialogConfig>
+		<name>yugang</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>上一次泡热水澡是什么时候来着？</text>
+			</li>
+		</content>
+	</DialogConfig>
 
-    <DialogConfig>
-        <name>InteractiveObjectDoorTest</name>
-        <prefab>WindowDialog</prefab>
-        <defaultSpeaker>SBLYM</defaultSpeaker>
-        <textReadInterval>0.08</textReadInterval>
-        <content>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>You got the key. Good job.</text>
-            </li>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>Now the door is open, you can get in then.</text>
-            </li>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>yeeeeeah.</text>
-            </li>
-        </content>
-    </DialogConfig>
+	<DialogConfig>
+		<name>yuandeng</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>以前的窗户有这么矮吗？</text>
+			</li>
+		</content>
+	</DialogConfig>
 
-        <DialogConfig>
-        <name>InteractiveObjectKeyTest</name>
-        <prefab>WindowDialog</prefab>
-        <defaultSpeaker>SBLYM</defaultSpeaker>
-        <textReadInterval>0.08</textReadInterval>
-        <content>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>You find the key! Here it is.</text>
-            </li>
-        </content>
-    </DialogConfig>
+	<DialogConfig>
+		<name>pujia</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>早知道砸完要我自己买，我就不砸了！</text>
+			</li>
+		</content>
+	</DialogConfig>
 
-    <DialogConfig>
-        <name>GameOverDialogTest</name>
-        <prefab>WindowDialog</prefab>
-        <defaultSpeaker>SBLYM</defaultSpeaker>
-        <textReadInterval>0.08</textReadInterval>
-        <content>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>You find all the key items! Congratulations!</text>
-            </li>
-            <li>
-                <speaker>SBLYM</speaker>
-                <text>The Game is over, Thanks for playing.</text>
-            </li>
-        </content>
-    </DialogConfig>
+	<DialogConfig>
+		<name>xiangkuang</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>如今的我，还能像以前一样“固执”下去吗？</text>
+			</li>
+		</content>
+	</DialogConfig>
 
-	
+	<DialogConfig>
+		<name>gangqin</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>落满灰尘的老钢琴</text>
+			</li>
+		</content>
+	</DialogConfig>
+
+	<DialogConfig>
+		<name>anniu</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>我记得...按钮是在那面？</text>
+			</li>
+		</content>
+	</DialogConfig>
+
+	<DialogConfig>
+		<name>kuaidi</name>
+		<prefab>WindowDialog</prefab>
+		<defaultSpeaker>时光</defaultSpeaker>
+		<textReadInterval>0.08</textReadInterval>
+		<content>
+			<li>
+				<speaker>时光</speaker>
+				<text>这位小哥不好意思，走路花了些时间，可以麻烦你帮我把外卖拿进去吗？</text>
+			</li>
+		</content>
+	</DialogConfig>
 </Data>
