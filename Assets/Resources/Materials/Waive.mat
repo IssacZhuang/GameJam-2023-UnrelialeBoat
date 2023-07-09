@@ -44,8 +44,8 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _t: 2.29
-    - _wave_scale: 190.3
-    - _wave_strength: 1
+    - _t: -41.3
+    - _wave_scale: 317.3
+    - _wave_strength: 0.9
     m_Colors: []
   m_BuildTextureStacks: []
