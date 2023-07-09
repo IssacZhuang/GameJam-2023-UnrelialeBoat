@@ -47,13 +47,16 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _v_scale: 0.45
+    - _v_scale: 0.06
+    - _waive_radius2: 0.08
+    - _waive_radius3: 0.08
     - _waive_raidus: 0.05
+    - _waive_raidus1: 0.08
     m_Colors:
-    - _Color: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Color: {r: 0.5, g: 0.5, b: 0.46, a: 0}
     - _itemPos1: {r: 0.88, g: 0.5, b: 0, a: 0}
-    - _itemPost2: {r: 0.22, g: 0.55, b: 0, a: 0}
-    - _itemPost3: {r: 0.46, g: 0.7, b: 0, a: 0}
+    - _itemPost2: {r: -0.65, g: 0.55, b: 0, a: 0}
+    - _itemPost3: {r: 0.34, g: 0.74, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2283686513581627523
 MonoBehaviour:
