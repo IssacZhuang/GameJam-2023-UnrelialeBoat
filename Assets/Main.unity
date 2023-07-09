@@ -174,9 +174,9 @@ MonoBehaviour:
   sceneRenderer: {fileID: 201821972}
   sceneTexture: {fileID: 8400000, guid: 0dacb0dd25a913e4fbae16c2bc6a782d, type: 2}
   sceneCamera: {fileID: 961739752}
-  waveStrength: 0.9
-  waveScale: 200
-  playSpeed: 0.1
+  waveStrength: 0.5
+  waveScale: 300
+  playSpeed: -0.025
 --- !u!1 &201821971
 GameObject:
   m_ObjectHideFlags: 0
