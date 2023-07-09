@@ -110,7 +110,7 @@ Material:
     - _ZWrite: 1
     - _brightness: 0
     - _isBrighten: 1
-    - _outline: 1
+    - _outline: 0
     - _shouldLightUp: 0
     - _thickness: 0.02
     m_Colors:

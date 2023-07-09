@@ -128,11 +128,16 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _brightness: 0
     - _inter: 0
+    - _isBrighten: 1
+    - _outline: 0
+    - _shouldLightUp: 0
     - _thickness: 0.01
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _outlineColor: {r: 1, g: 0.7931801, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2198636265742260337
 MonoBehaviour:

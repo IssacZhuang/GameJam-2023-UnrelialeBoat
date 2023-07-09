@@ -73,9 +73,143 @@
 		<isDoor>true</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<description>This is a locked door.</description>
+		<description>这门是怎么锁上的？！</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>metronome</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>没想到过了这么久还能用。</dialogConfig>
 	</InteractiveObjectConfig>
 	
+	<InteractiveObjectConfig>
+		<name>bathtub</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>上一次泡热水澡是什么时候来着？</dialogConfig>
+	</InteractiveObjectConfig>
 
+	<InteractiveObjectConfig>
+		<name>Circular_stool</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>以前的窗户有这么矮吗？</dialogConfig>
+	</InteractiveObjectConfig>
 
+	<InteractiveObjectConfig>
+		<name>music_stand</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>早知道砸完要我自己买，我就不砸了！</dialogConfig>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>Photo_frame</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>true</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>如今的我，还能像以前一样“固执”下去吗？</dialogConfig>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>piano</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>落满灰尘的老钢琴</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>elevator_button</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>我记得...按钮是在那面？</dialogConfig>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>Courier</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<dialogConfig>这位小哥不好意思，走路花了些时间，可以麻烦你帮我把外卖拿进去吗？</dialogConfig>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>Cooking_bench</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>灶台</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>bed</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>双人床</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>Coat_hanger</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>衣架</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>television</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>老旧的电视</description>
+	</InteractiveObjectConfig>
+	
+	<InteractiveObjectConfig>
+		<name>closestool</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>马桶</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>Toilet_table</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>洗漱台</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>wardrobe</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>false</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>衣柜</description>
+	</InteractiveObjectConfig>
+	
+	
 </Data>
