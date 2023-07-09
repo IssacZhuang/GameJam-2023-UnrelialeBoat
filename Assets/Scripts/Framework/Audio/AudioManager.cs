@@ -6,6 +6,16 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public List<AudioSource> BGMList = new List<AudioSource>();
+    // getter of BGMList
+    public List<AudioSource> GetBGMList()
+    {
+        return BGMList;
+    }
+    public void ChangeBGM(){
+        BGMList[0].Stop();
+        BGMList[1].Stop();
+    }
     private class AudioInstance
     {
         public float lifeTime;
@@ -20,6 +30,10 @@ public class AudioManager : MonoBehaviour
         Current.AudioManager = this;
     }
 
+    void OnCreate(){
+        BGMList[0].Play();
+        BGMList[1].Play();
+    }
     void Update()
     {
         for (int i = _audios.Count - 1; i >= 0; i--)
