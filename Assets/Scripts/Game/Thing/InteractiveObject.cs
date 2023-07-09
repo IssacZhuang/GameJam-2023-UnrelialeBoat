@@ -43,14 +43,22 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
             // Interacte with the object
             // TODO send message to event manager
             if (Config.isDoor){ // if its a door
-                if (Current.MainCharacter.GetHasKey()){
+                if (_isKeyItem){ // if its a key door
+                    if (Current.MainCharacter.GetHasKey()){
+                        // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
+                        WindowDialog.PopDialog("InteractiveObjectDoorTest");
+                        this.Instance.GetComponent<BoxCollider2D>().enabled = false;
+                        _isDone = true;
+                    }else{
+                        FloatTip.Pop(Config.description);
+                    }
+                }else{  // if its a normal door
                     // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
-                    WindowDialog.PopDialog("InteractiveObjectDoorTest");
+                    FloatTip.Pop(Config.description);
                     this.Instance.GetComponent<BoxCollider2D>().enabled = false;
                     _isDone = true;
-                }else{
-                    FloatTip.Pop(Config.description);
                 }
+
             }else if (Config.isKey){
                     // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
                     WindowDialog.PopDialog("InteractiveObjectKeyTest");
