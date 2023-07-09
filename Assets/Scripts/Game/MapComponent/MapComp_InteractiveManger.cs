@@ -12,7 +12,6 @@ public class MapComp_InteractiveManger : BaseMapComponent
     public override void OnCreate()
     {
         base.OnCreate();
-        Debug.Log("InteractiveManger OnCreate");
     }
 
     public override void OnTick()
@@ -22,7 +21,6 @@ public class MapComp_InteractiveManger : BaseMapComponent
         {
             CheckCondition();
         }
-        Debug.Log("Tick");
     }
 
     public void CheckCondition()

@@ -23,8 +23,8 @@
 			<brightnessStart>1.0</brightnessStart>
 			<brightnessMiddle>-2.0</brightnessMiddle>
 			<brightnessEnd>1.0</brightnessEnd>
-			<durationStart>4.0</durationStart>
-			<durationEnd>3.0</durationEnd>
+			<durationStart>3.0</durationStart>
+			<durationEnd>2.0</durationEnd>
 			<curveStart>(0.66,0.1,0.42,1.8)</curveStart>
 			<curveEnd>(0.0, 0.39, 0.68, 1.08)</curveEnd>
 		</DiscoverLineAnimatesLoop>
