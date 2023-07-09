@@ -63,7 +63,7 @@
 		<isKeyItem>false</isKeyItem>
 		<isDoor>true</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
+		<detectionRadius>2.4</detectionRadius>
 		<description>门开了</description>
 	</InteractiveObjectConfig>
 
@@ -72,8 +72,8 @@
 		<isKeyItem>true</isKeyItem>
 		<isDoor>true</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
-		<description>这门是怎么锁上的？！</description>
+		<detectionRadius>2.4</detectionRadius>
+		<dialogConfig>suomen</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -81,8 +81,8 @@
 		<isKeyItem>true</isKeyItem>
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>没想到过了这么久还能用。</dialogConfig>
+		<detectionRadius>2.6</detectionRadius>
+		<dialogConfig>jiepaiqi</dialogConfig>
 	</InteractiveObjectConfig>
 	
 	<InteractiveObjectConfig>
@@ -91,7 +91,7 @@
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>上一次泡热水澡是什么时候来着？</dialogConfig>
+		<dialogConfig>yugang</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -100,7 +100,7 @@
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>以前的窗户有这么矮吗？</dialogConfig>
+		<dialogConfig>yuandeng</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -109,7 +109,7 @@
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>早知道砸完要我自己买，我就不砸了！</dialogConfig>
+		<dialogConfig>pujia</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -118,7 +118,7 @@
 		<isDoor>false</isDoor>
 		<isKey>true</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>如今的我，还能像以前一样“固执”下去吗？</dialogConfig>
+		<dialogConfig>xiangkuang</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -127,7 +127,7 @@
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<description>落满灰尘的老钢琴</description>
+		<description>gangqin</description>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -136,7 +136,7 @@
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>我记得...按钮是在那面？</dialogConfig>
+		<dialogConfig>anniu</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -145,7 +145,7 @@
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>1.5</detectionRadius>
-		<dialogConfig>这位小哥不好意思，走路花了些时间，可以麻烦你帮我把外卖拿进去吗？</dialogConfig>
+		<dialogConfig>kuaidi</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>

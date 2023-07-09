@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dis : MonoBehaviour
+public class DisassembleDemoLevel : BaseMapComponent
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnCreate()
     {
-        
+        Debug.Log("º”‘ÿµÿÕº");
+        base.OnCreate();
     }
 }
