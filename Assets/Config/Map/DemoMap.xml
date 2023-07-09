@@ -4,14 +4,17 @@
         <name>Scene1</name>
         <scene>DisassembleDemoLevel</scene>
         <description>示例地图..sss.</description>
+        <components>
+			<li>MapComp_InteractiveManger</li>
+		</components>
     </MapConfig>
 
     <MapConfig>
         <name>Scene2</name>
         <scene>DemoScene2</scene>
         <description>示例地图..sss.</description>
-		<compoment>
-			<li>DisassembleDemoLevel</li>
-		</compoment>
+		<components>
+			<li>MapComp_InteractiveManger</li>
+		</components>
     </MapConfig>
 </Data>
