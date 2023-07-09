@@ -40,15 +40,10 @@ Transform:
   - {fileID: 8760469644836513273}
   - {fileID: 3302782918012928702}
   - {fileID: 2196614212760759685}
-  - {fileID: 5519822752153666888}
-  - {fileID: 6528179870949873298}
-  - {fileID: 4386765848163729155}
-  - {fileID: 7801191734698397748}
-  - {fileID: 9119613497241921341}
-  - {fileID: 2293225094366916442}
   - {fileID: 6943873618839830954}
+  - {fileID: 1174269717996515105}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095199632239719164
 GameObject:
@@ -62,8 +57,9 @@ GameObject:
   - component: {fileID: 7801475056972426002}
   - component: {fileID: 5334954283827277461}
   - component: {fileID: 7719749953863061825}
+  - component: {fileID: 7199819007880963380}
   m_Layer: 0
-  m_Name: "\u95E8 (2)"
+  m_Name: NotKeyDoor5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +77,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 396462221699760434}
+  m_Father: {fileID: 1174269717996515105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7801475056972426002
@@ -208,6 +204,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &7199819007880963380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095199632239719164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: NotKeyDoor
 --- !u!1 &1439323957676344946
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +230,7 @@ GameObject:
   - component: {fileID: 7875808926550858034}
   - component: {fileID: 4128857594617913218}
   m_Layer: 0
-  m_Name: "\u6905\u5B50 (3)"
+  m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +388,7 @@ GameObject:
   - component: {fileID: 1347775393700477060}
   - component: {fileID: 1694606380269734782}
   m_Layer: 0
-  m_Name: Bathtub (1)
+  m_Name: Bathtub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,7 +704,7 @@ GameObject:
   - component: {fileID: 5052184222689955970}
   - component: {fileID: 1167806161306218502}
   m_Layer: 0
-  m_Name: "\u7076\u53F0 (1)"
+  m_Name: Cook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,7 +862,7 @@ GameObject:
   - component: {fileID: 1110101226075862656}
   - component: {fileID: 2232950571900838354}
   m_Layer: 0
-  m_Name: Piano (1)
+  m_Name: Piano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1011,7 +1020,7 @@ GameObject:
   - component: {fileID: 770624888187354323}
   - component: {fileID: 1030190757514124433}
   m_Layer: 0
-  m_Name: "\u5706\u684C (2)"
+  m_Name: Table1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1484,8 +1493,9 @@ GameObject:
   - component: {fileID: 642140011783791975}
   - component: {fileID: 3380335287139892945}
   - component: {fileID: 4063469466701830951}
+  - component: {fileID: 5316017861936657617}
   m_Layer: 0
-  m_Name: "\u95E8 (3)"
+  m_Name: NotKeyDoor6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,7 +1513,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 396462221699760434}
+  m_Father: {fileID: 1174269717996515105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &642140011783791975
@@ -1630,6 +1640,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &5316017861936657617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776824780771307883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: NotKeyDoor
 --- !u!1 &5793037943738084696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1666,7 @@ GameObject:
   - component: {fileID: 6471778759017238621}
   - component: {fileID: 2785943925872583773}
   m_Layer: 0
-  m_Name: Botton (1)
+  m_Name: Botton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1801,7 +1824,7 @@ GameObject:
   - component: {fileID: 5207588167135247764}
   - component: {fileID: 8320819268037722587}
   m_Layer: 0
-  m_Name: Toilet (1)
+  m_Name: Toilet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1958,8 +1981,9 @@ GameObject:
   - component: {fileID: 7966697507246658464}
   - component: {fileID: 5436692340850819948}
   - component: {fileID: 7221001727925043489}
+  - component: {fileID: 7621104459287107640}
   m_Layer: 0
-  m_Name: Door-plan (1)
+  m_Name: NotKeyDoor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1977,7 +2001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 396462221699760434}
+  m_Father: {fileID: 1174269717996515105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7966697507246658464
@@ -2104,6 +2128,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &7621104459287107640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437840484052443114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: NotKeyDoor
 --- !u!1 &6534727929680588554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,8 +2153,9 @@ GameObject:
   - component: {fileID: 1137280856575589661}
   - component: {fileID: 4331917796904111136}
   - component: {fileID: 665768273299087775}
+  - component: {fileID: 1214326706887931445}
   m_Layer: 0
-  m_Name: Door-plan (2)
+  m_Name: NotKeyDoor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,7 +2173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 396462221699760434}
+  m_Father: {fileID: 1174269717996515105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1137280856575589661
@@ -2262,6 +2300,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &1214326706887931445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534727929680588554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: NotKeyDoor
 --- !u!1 &7021218576910926191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,7 +2326,7 @@ GameObject:
   - component: {fileID: 5708278517464975298}
   - component: {fileID: 3210473565007588249}
   m_Layer: 0
-  m_Name: Broken (1)
+  m_Name: Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2432,8 +2483,9 @@ GameObject:
   - component: {fileID: 6520921649084244007}
   - component: {fileID: 6051418807783592067}
   - component: {fileID: 6450953922542637654}
+  - component: {fileID: 5389565227256250737}
   m_Layer: 0
-  m_Name: "\u95E8 (1)"
+  m_Name: NotKeyDoor4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2451,7 +2503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 396462221699760434}
+  m_Father: {fileID: 1174269717996515105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6520921649084244007
@@ -2578,6 +2630,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &5389565227256250737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424340069013043202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: NotKeyDoor
 --- !u!1 &7472036391486250204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,8 +2655,9 @@ GameObject:
   - component: {fileID: 6072025778846762502}
   - component: {fileID: 5424409577300031703}
   - component: {fileID: 4338802230869647588}
+  - component: {fileID: 7812640594711183929}
   m_Layer: 0
-  m_Name: Door-plan (3)
+  m_Name: NotKeyDoor3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2609,7 +2675,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 396462221699760434}
+  m_Father: {fileID: 1174269717996515105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6072025778846762502
@@ -2736,6 +2802,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &7812640594711183929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472036391486250204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: NotKeyDoor
 --- !u!1 &8099272057696819204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,8 +2827,9 @@ GameObject:
   - component: {fileID: 3301221951628366843}
   - component: {fileID: 7414414298060795809}
   - component: {fileID: 4244239755504878666}
+  - component: {fileID: 2435533439164319195}
   m_Layer: 0
-  m_Name: "\u95E8 (4)"
+  m_Name: KeyDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2894,6 +2974,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.078125, y: 2.078125}
   m_EdgeRadius: 0
+--- !u!114 &2435533439164319195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099272057696819204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a3508d6059dc469cfb0e871fe1f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configName: KeyDoor
 --- !u!1 &8952006740515369221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,7 +3000,7 @@ GameObject:
   - component: {fileID: 7349757985403630717}
   - component: {fileID: 5746756416222357630}
   m_Layer: 0
-  m_Name: "\u6905\u5B50 (2)"
+  m_Name: Chair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3052,3 +3145,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!1 &9068503632096800742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174269717996515105}
+  m_Layer: 6
+  m_Name: NotKeyDoors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1174269717996515105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068503632096800742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5519822752153666888}
+  - {fileID: 6528179870949873298}
+  - {fileID: 4386765848163729155}
+  - {fileID: 7801191734698397748}
+  - {fileID: 9119613497241921341}
+  - {fileID: 2293225094366916442}
+  m_Father: {fileID: 396462221699760434}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

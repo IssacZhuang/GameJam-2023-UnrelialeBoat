@@ -58,5 +58,24 @@
         <description>This is a locked door.</description>
     </InteractiveObjectConfig>
 
+	<InteractiveObjectConfig>
+		<name>NotKeyDoor</name>
+		<isKeyItem>false</isKeyItem>
+		<isDoor>true</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>门开了</description>
+	</InteractiveObjectConfig>
+
+	<InteractiveObjectConfig>
+		<name>KeyDoor</name>
+		<isKeyItem>true</isKeyItem>
+		<isDoor>true</isDoor>
+		<isKey>false</isKey>
+		<detectionRadius>1.5</detectionRadius>
+		<description>This is a locked door.</description>
+	</InteractiveObjectConfig>
+	
+
 
 </Data>
