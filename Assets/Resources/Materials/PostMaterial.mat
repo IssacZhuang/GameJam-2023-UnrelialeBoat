@@ -48,10 +48,10 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _v_scale: 0.06
-    - _waive_radius2: 0.08
-    - _waive_radius3: 0.08
+    - _waive_radius2: 0.04
+    - _waive_radius3: 0.04
     - _waive_raidus: 0.05
-    - _waive_raidus1: 0.08
+    - _waive_raidus1: 0.04
     m_Colors:
     - _Color: {r: 0.5, g: 0.5, b: 0.46, a: 0}
     - _itemPos1: {r: 0.88, g: 0.5, b: 0, a: 0}
