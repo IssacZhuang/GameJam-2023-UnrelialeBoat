@@ -77,9 +77,7 @@
         </content>
     </DialogConfig>
 
-        </DialogConfig>
-
-        <DialogConfig>
+    <DialogConfig>
         <name>GameOverDialogTest</name>
         <prefab>WindowDialog</prefab>
         <defaultSpeaker>SBLYM</defaultSpeaker>
