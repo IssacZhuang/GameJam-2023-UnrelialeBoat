@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class MainMenu : BaseView<MainMenuConfig>
 {
@@ -23,7 +22,7 @@ public class MainMenu : BaseView<MainMenuConfig>
         MainMenuConfig config = Content.GetConfig<MainMenuConfig>("MainMenu");
         if (config == null)
         {
-            Debug.LogError("Î´¶¨Òå°üº¬<name>MainMenu</name>µÄconfigÎÄ¼þ");
+            Debug.LogError("Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<name>MainMenu</name>ï¿½ï¿½configï¿½Ä¼ï¿½");
             return;
         }
 
@@ -39,7 +38,7 @@ public class MainMenu : BaseView<MainMenuConfig>
         _btnStart = transform.Find("StartButton").GetComponent<Button>();
         _btnStart.onClick.AddListener(() =>
         {
-            // »»µØÍ¼
+            // ï¿½ï¿½ï¿½ï¿½Í¼
             Current.Game.LoadMap(Config.defaultMap);
             this.Hide();
             _isHide = true;
@@ -48,14 +47,14 @@ public class MainMenu : BaseView<MainMenuConfig>
         _btnAbout = transform.Find("AboutButton").GetComponent<Button>();
         _btnAbout.onClick.AddListener(() =>
         {
-            // ÁíÒ»¸öui
+            // ï¿½ï¿½Ò»ï¿½ï¿½ui
             _panelAbout.SetActive(true);
         });
         // start button logic
         _btnExit = transform.Find("ExitButton").GetComponent<Button>();
         _btnExit.onClick.AddListener(() =>
         {
-            Application.Quit(); //ÅÀ£¡
+            Application.Quit(); //ï¿½ï¿½ï¿½ï¿½
         });
 
         // about panel logic
