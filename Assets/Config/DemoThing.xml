@@ -73,6 +73,7 @@
 		<isDoor>true</isDoor>
 		<isKey>false</isKey>
 		<detectionRadius>2.4</detectionRadius>
+		<description>这门是怎么锁上的？！</description>
 		<dialogConfig>suomen</dialogConfig>
 	</InteractiveObjectConfig>
 
@@ -126,8 +127,8 @@
 		<isKeyItem>true</isKeyItem>
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
-		<description>gangqin</description>
+		<detectionRadius>3.0</detectionRadius>
+		<dialogConfig>gangqin</dialogConfig>
 	</InteractiveObjectConfig>
 
 	<InteractiveObjectConfig>
@@ -162,7 +163,7 @@
 		<isKeyItem>false</isKeyItem>
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
+		<detectionRadius>2.4</detectionRadius>
 		<description>双人床</description>
 	</InteractiveObjectConfig>
 
@@ -171,7 +172,7 @@
 		<isKeyItem>false</isKeyItem>
 		<isDoor>false</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
+		<detectionRadius>2.4</detectionRadius>
 		<description>衣架</description>
 	</InteractiveObjectConfig>
 
