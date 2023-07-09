@@ -72,7 +72,7 @@
 		<isKeyItem>true</isKeyItem>
 		<isDoor>true</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
+		<detectionRadius>2.4</detectionRadius>
 		<description>This is a locked door.</description>
 	</InteractiveObjectConfig>
 	
