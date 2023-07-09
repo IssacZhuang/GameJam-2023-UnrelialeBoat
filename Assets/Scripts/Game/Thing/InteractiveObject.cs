@@ -20,13 +20,11 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
         this.BindEvent(EventHoverObject.eventHoverObject, OnDiscover);
         _isKeyItem = Config.isKeyItem;
         _interactiveRange = Config.detectionRadius;
-        Debug.Log(_interactiveRange);
     }
 
     public void OnDiscover()
     {
         //do something
-        // Debug.Log("OnDiscover");
         if (_isDone){
             _showStatus = 2;
         }else{
@@ -39,35 +37,35 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
     public override void OnTick()
     {
       if (!_isDone){ // this event is not interacteved yet
+
         if (_hoverCounter >= 120){
+                //   Debug.Log("触发");
             // Interacte with the object
             // TODO send message to event manager
             if (Config.isDoor){ // if its a door
                 if (_isKeyItem){ // if its a key door
-                    if (Current.MainCharacter.GetHasKey()){
-                        // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
-                        WindowDialog.PopDialog("InteractiveObjectDoorTest");
+                    if (Current.MainCharacter.GetHasKey()){ // has key
+                        WindowDialog.PopDialog(Config.dialogConfig);
                         this.Instance.GetComponent<BoxCollider2D>().enabled = false;
                         _isDone = true;
-                    }else{
+                    }else{ // no key
+                        Debug.Log("no key");
                         FloatTip.Pop(Config.description);
                     }
                 }else{  // if its a normal door
-                    // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
                     FloatTip.Pop(Config.description);
                     this.Instance.GetComponent<BoxCollider2D>().enabled = false;
+                    Current.AudioManager.PlayAsync("doorlock",0.5f);
                     _isDone = true;
                 }
 
             }else if (Config.isKey){
-                    // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
-                    WindowDialog.PopDialog("InteractiveObjectKeyTest");
+                    WindowDialog.PopDialog(Config.dialogConfig);
                     Current.MainCharacter.SetHasKey(true);
                     _isDone = true;
             }else{ // if its not a door
                 if (_isKeyItem){ // if its a key item
-                    // Current.MainCharacter.SendEvent(EventCharacter.eventSetCharacterPaused,true);
-                    WindowDialog.PopDialog("InteractiveObjectDialogTest");
+                    WindowDialog.PopDialog(Config.dialogConfig);
                     _isDone = true;
                 }else{ // if its not a key item
                     FloatTip.Pop(Config.description);
