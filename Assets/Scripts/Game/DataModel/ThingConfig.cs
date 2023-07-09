@@ -1,3 +1,5 @@
+using Vocore;
+
 public class BulletConfig : BaseThingConfig
 {
     public float speed;
@@ -15,5 +17,9 @@ public class GunConfig : BaseThingConfig
 public class InteractiveObjectConfig : BaseThingConfig
 {
     public bool isKeyItem;
+    public bool isDoor;
+    public bool isKey;
     public float detectionRadius;
+    public string description;
+    public EventId eventID;
 }

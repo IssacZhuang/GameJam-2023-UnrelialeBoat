@@ -7,6 +7,7 @@ public class Character : BaseThing<CharacterConfig>
 {
     private Func<float, float> _speedCurve;
     private bool _isPaused = false;
+    public bool _hasKey = false;
     private float _t;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -179,5 +180,12 @@ public class Character : BaseThing<CharacterConfig>
 
     private void SetCharacterIsPasued(bool flag){
         _isPaused = flag;
+    }
+
+    public void SetHasKey(bool flag){
+        _hasKey = flag;
+    }
+    public bool GetHasKey(){
+        return _hasKey;
     }
 }
