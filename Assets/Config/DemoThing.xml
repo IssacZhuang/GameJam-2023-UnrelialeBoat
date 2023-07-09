@@ -63,7 +63,7 @@
 		<isKeyItem>false</isKeyItem>
 		<isDoor>true</isDoor>
 		<isKey>false</isKey>
-		<detectionRadius>1.5</detectionRadius>
+		<detectionRadius>2.4</detectionRadius>
 		<description>门开了</description>
 	</InteractiveObjectConfig>
 
