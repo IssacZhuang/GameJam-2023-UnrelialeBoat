@@ -83,7 +83,7 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
                     _isDone = true;
                 }
             }
-            // _hoverCounter = 0;  // reset the counter
+            _hoverCounter = 0;  // reset the counter
             this.Instance.GetComponent<EventBridge>().SendEvent(EventObjectBrightness.eventDiscoverObject);
             
         }
