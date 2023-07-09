@@ -35117,8 +35117,8 @@ VideoPlayer:
   m_RenderMode: 3
   m_AspectRatio: 2
   m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
+  m_TimeUpdateMode: 1
+  m_PlaybackSpeed: 0.6
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
@@ -70255,15 +70255,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 619534091270932718, guid: 1cfa5da6383e3844195fec0a90ea5aa3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.059574
+      value: 2.746596
       objectReference: {fileID: 0}
     - target: {fileID: 619534091270932718, guid: 1cfa5da6383e3844195fec0a90ea5aa3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.059574
+      value: 2.746596
       objectReference: {fileID: 0}
     - target: {fileID: 619534091270932718, guid: 1cfa5da6383e3844195fec0a90ea5aa3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.059574
+      value: 2.746596
+      objectReference: {fileID: 0}
+    - target: {fileID: 619534091270932718, guid: 1cfa5da6383e3844195fec0a90ea5aa3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 619534091270932718, guid: 1cfa5da6383e3844195fec0a90ea5aa3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.27777767
       objectReference: {fileID: 0}
     - target: {fileID: 1595222225405046191, guid: 1cfa5da6383e3844195fec0a90ea5aa3, type: 3}
       propertyPath: m_RootOrder
