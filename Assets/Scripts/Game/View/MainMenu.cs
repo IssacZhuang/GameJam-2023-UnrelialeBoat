@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class MainMenu : BaseView<MainMenuConfig>
 {
