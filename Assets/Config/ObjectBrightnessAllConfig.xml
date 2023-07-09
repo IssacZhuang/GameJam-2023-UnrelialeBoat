@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+	<ObjectBrightnessAllConfig>
+		<name>ObjectBrightnessAllConfig1</name>
+		<DiscoverAnimates>
+			<animateName>OnDiscoverAll</animateName>
+			<outline>0</outline>
+			<isBrighten>1</isBrighten>
+			<shouldLightUp>0</shouldLightUp>
+			<thickness>0.2</thickness>
+			<brightnessStart>0.0</brightnessStart>
+			<brightnessEnd>1.0</brightnessEnd>
+			<duration>5.0</duration>
+			<curve>(0.66,0.1,0.42,1.8)</curve>
+		</DiscoverAnimates>
+	</ObjectBrightnessAllConfig>
+	
+	<ObjectBrightnessAllConfig>
+		<name>ObjectBrightnessAllConfig2</name>
+		<DiscoverAnimates>
+			<animateName>OnDiscoverAll</animateName>
+			<outline>0</outline>
+			<isBrighten>1</isBrighten>
+			<shouldLightUp>0</shouldLightUp>
+			<thickness>0.2</thickness>
+			<brightnessStart>0.0</brightnessStart>
+			<brightnessEnd>2.0</brightnessEnd>
+			<duration>5.0</duration>
+			<curve>(0.66,0.1,0.42,1.8)</curve>
+		</DiscoverAnimates>
+	</ObjectBrightnessAllConfig>
+</Data>
