@@ -28,4 +28,10 @@ public class CommandView
         FloatTip.Pop(args[0].String);
         Terminal.Close();
     }
+
+    [RegisterCommand(Name = "endgame", Help = "Pop end game menu", MaxArgCount = 0)]
+    static void CommandEnd(CommandArg[] args)
+    {
+        WindowEndGame.Pop();
+    }
 }

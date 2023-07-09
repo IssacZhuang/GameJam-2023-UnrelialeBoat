@@ -30,6 +30,7 @@ public class Build : MonoBehaviour
     {
         //select path to build
         string path = EditorUtility.SaveFolderPanel("选择生成的路径: ", "", "");
+        AddressableHandler.ReimportFolder();
         BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, Path.Combine(path, "Game/Game.exe"), platform, BuildOptions.None);
         
 
