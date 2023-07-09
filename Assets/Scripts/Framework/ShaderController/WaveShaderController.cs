@@ -125,8 +125,8 @@ public class WaveShaderController : MonoBehaviour
             {
                 Vector2 pos = sceneCamera.WorldToScreenPoint(_positionBuffer[i]);
                 //normalize
-                pos.x /= Screen.width;
-                pos.y /= Screen.height;
+                pos.x /= sceneCamera.pixelWidth;
+                pos.y /= sceneCamera.pixelHeight;
                 nearstPos[i] = new Vector4(pos.x, pos.y, 0, 0);
             }
             else
