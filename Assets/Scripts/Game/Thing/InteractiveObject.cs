@@ -55,17 +55,17 @@ public class InteractiveObject : BaseThing<InteractiveObjectConfig>
                     if (Current.MainCharacter.GetHasKey()){ // has key
                         WindowDialog.PopDialog(Config.dialogConfig);
                         this.Instance.GetComponent<BoxCollider2D>().enabled = false;
-                        Current.AudioManager.PlayAsync("doorlock",0.5f);
+                        Current.AudioManager.PlayAsync("doorlock");
                         _isDone = true;
                     }else{ // no key
                         Debug.Log("no key");
                         FloatTip.Pop(Config.description);
-                        Current.AudioManager.PlayAsync("doorlock",0.5f);
+                        Current.AudioManager.PlayAsync("keydoor");
                     }
                 }else{  // if its a normal door
                     FloatTip.Pop(Config.description);
                     this.Instance.GetComponent<BoxCollider2D>().enabled = false;
-                    Current.AudioManager.PlayAsync("doorlock",0.5f);
+                    Current.AudioManager.PlayAsync("doorlock");
                     _isDone = true;
                 }
 
